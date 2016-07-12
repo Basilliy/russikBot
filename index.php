@@ -6,7 +6,7 @@
 $com = file_get_contents('php://input');
 $output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
-$res = serialize($_POST);
+$res = serialize($_POST['Update']);
 $res1 = serialize($_GET);
 $res2 = serialize($com);
 print_r($res);
