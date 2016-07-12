@@ -6,8 +6,6 @@
 
 $output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
-print_r("id =",$HTTP_RAW_POST_DATA);
-
 //////////ВАЖНО /////
 $token = "246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA";
 $url  = "https://api.telegram.org/bot".$token;
