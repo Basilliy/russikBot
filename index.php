@@ -4,7 +4,7 @@
 //$result = json_decode($_POST, TRUE);
 //$id = $_SERVER["result"][0]["message"]["chat"]["id"];
 
-$output = json_decode(file_get_contents('https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/getupdates'), TRUE);
+$output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
 serialize($output);
 //////////ВАЖНО /////
