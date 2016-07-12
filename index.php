@@ -1,4 +1,33 @@
 <?php
+function regHandler($token)
+{
+    $url = "https://api.telegram.org/bot" . $token . "/setWebhook";
+    $ch = curl_init();
+    $optArray = array(
+        CURLOPT_URL => $url,
+        CURLOPT_POST => true,
+        CURLOPT_SAFE_UPLOAD => false,
+        CURLOPT_RETURNTRANSFER => true,
+    );
+    curl_setopt_array($ch, $optArray);
+
+    $result = curl_exec($ch);
+    echo "<pre>";
+    print_r($result);
+    echo "</pre>";
+    curl_close($ch);
+}
+
+$token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
+$path = '/ssl/YOURPUBLIC.pem';
+$handlerurl = 'https://russikbot.herokuapp.com/index.php'; // ИЗМЕНИТЕ ССЫЛКУ
+
+regHandler($token);
+
+
+
+
+
 
 //$update = file_get_contents($url."/getupdates");
 //$result = json_decode($_POST, TRUE);
