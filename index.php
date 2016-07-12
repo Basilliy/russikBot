@@ -6,8 +6,12 @@
 $com = file_get_contents('php://input');
 $output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
-$res = serialize($com);
+$res = serialize($_POST);
+$res1 = serialize($_GET);
+$res2 = serialize($com);
 print_r($res);
+print_r($res1);
+print_r($res2);
 //////////ВАЖНО /////
 $token = "246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA";
 $url  = "https://api.telegram.org/bot" . $token;
