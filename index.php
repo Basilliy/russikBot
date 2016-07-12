@@ -6,7 +6,7 @@
 $output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-print_r($_POST);
+print_r($_POST); 
 //echo curl_version(); 
 //////////ВАЖНО /////
 $token = "246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA";
