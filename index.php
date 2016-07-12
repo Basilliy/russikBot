@@ -9,7 +9,7 @@ $chat_id = $output['message']['chat']['id'];
 print_r("res=".file_get_contents('php://input'));
 //print_r("/n");
 print_r("id = ".$chat_id);
-//echo curl_version();
+//echo curl_version(); 
 //////////ВАЖНО /////
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 //echo $update;
