@@ -6,9 +6,10 @@ $url  = "https://api.telegram.org/bot".$token;
 //$id = $_SERVER["result"][0]["message"]["chat"]["id"];
 $output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
-print_r("res=".$output);
-//print_r("/n");
-print_r("id = ".$chat_id);
+print_r("res=".file_get_contents('php://input'));
+print_r("res=".file_get_contents($_POST));
+print_r("res=".file_get_contents($_GET));
+print_r("res=".file_get_contents($_SERVER));
 //echo curl_version(); 
 //////////ВАЖНО /////
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
