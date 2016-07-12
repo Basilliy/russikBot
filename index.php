@@ -6,7 +6,7 @@
 
 $output = json_decode(file_get_contents('php://input'), TRUE);
 $chat_id = $output['message']['chat']['id'];
-$res = serialize($output);
+$res = serialize(file_get_contents('php://input'));
 print_r($res);
 //////////ВАЖНО /////
 $token = "246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA";
