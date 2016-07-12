@@ -14,4 +14,4 @@ $token = "246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA";
 $url  = "https://api.telegram.org/bot".$token;
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 //echo $update;
-$update = file_get_contents($url."/sendmessage?chat_id=267280685&text=$fuck");
+$update = file_get_contents($url."/sendmessage?chat_id='.$chat_id.'&text=$fuck");
