@@ -9,7 +9,7 @@ $chat_id = $output['message']['chat']['id'];
 $res = serialize($_POST['Update']);
 $res1 = serialize($_GET);
 $res2 = serialize($com);
-print_r($res);
+print_r($res); 
 print_r($res1);
 print_r($res2);
 //////////ВАЖНО /////
