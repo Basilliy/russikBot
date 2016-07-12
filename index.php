@@ -4,7 +4,7 @@
 //$result = json_decode($_POST, TRUE);
 //$id = $_SERVER["result"][0]["message"]["chat"]["id"];
 $com = file_get_contents('php://input');
-$output = json_decode(file_get_contents('php://input'), TRUE);
+$output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $res = serialize($_POST['Update']);
 $res1 = serialize($_GET);
