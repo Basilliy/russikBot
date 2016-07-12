@@ -4,12 +4,12 @@ $url  = "https://api.telegram.org/bot".$token;
 //$update = file_get_contents($url."/getupdates");
 //$result = json_decode($_POST, TRUE);
 //$id = $_SERVER["result"][0]["message"]["chat"]["id"];
-$output = json_decode(file_get_contents('php://input'), TRUE);
+$output = @file_get_contents('php://input');
 $chat_id = $output['message']['chat']['id'];
 print_r("res=".file_get_contents('php://input'));
-print_r("res=".file_get_contents($_POST));
-print_r("res=".file_get_contents($_GET));
-print_r("res=".file_get_contents($_SERVER));
+print_r("res=".file_get_contents($_POST[""]));
+print_r("res=".file_get_contents($_GET[""]));
+print_r("res=".file_get_contents($_SERVER['HTTP_X_HUB_SIGNATURE']));
 //echo curl_version(); 
 //////////ВАЖНО /////
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
