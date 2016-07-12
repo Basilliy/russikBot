@@ -21,7 +21,7 @@ function regHandler($token)
 $token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
 $path = '/ssl/YOURPUBLIC.pem';
 $handlerurl = 'https://russikbot.herokuapp.com/index.php'; // ИЗМЕНИТЕ ССЫЛКУ
-
+ 
 regHandler($token);
 
 	function sendMessage($chat_id, $message)
