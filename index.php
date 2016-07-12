@@ -7,9 +7,9 @@ $url  = "https://api.telegram.org/bot".$token;
 $output = @file_get_contents('php://input');
 $chat_id = $output['message']['chat']['id'];
 print_r("res=".file_get_contents('php://input'));
-print_r("res=".file_get_contents($_POST[""]));
-print_r("res=".file_get_contents($_GET[""]));
-print_r("res=".file_get_contents($_SERVER['HTTP_X_HUB_SIGNATURE']));
+print_r("res=".$_POST[""]);
+print_r("res=".$_GET[""]);
+print_r("res=".$_SERVER['']);
 //echo curl_version(); 
 //////////ВАЖНО /////
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
