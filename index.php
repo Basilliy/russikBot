@@ -13,7 +13,7 @@ $message = $output['message']['text'];
 
 
 
-
+ 
 
 $fp = (json_decode(file_get_contents('user.json')));
 print_r($fp);
