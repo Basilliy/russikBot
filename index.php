@@ -11,9 +11,6 @@ $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
 
-
-
-
 if($message == '/start'){
     $reply_markup = '';
 //    $buttons = [[['text' => 'tekst',
@@ -30,7 +27,7 @@ if($message == '/start'){
         'selective' => true
     ]);
     $reply_markup = '&reply_markup=' . $keyboard . '';
-    $message = '';
+    $message = 'language';
     sendMessage($chat_id, $message.$reply_markup);
 }
 
