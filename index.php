@@ -37,7 +37,7 @@ if($message == '/start'){
 else {
 
     $fp = json_decode(file_get_contents('users.json'), true);
-    if (chekUser($fp, "User") == false) {
+    if (chekUser($fp, $chat_id) == false) {
         AddUser($chat_id,$fp,$message);
     }
     else{
@@ -68,4 +68,6 @@ function AddUser($user_id,$mass,$message){
 
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
+    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+    sendMessage($$user_id, $fuck);
 }
