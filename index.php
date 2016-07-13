@@ -9,7 +9,7 @@ $api = 'https://api.telegram.org/bot' . $access_token;
 /**
  * Задаём основные переменные.
  */
-$output = json_decode(file_get_contents('php://input'), TRUE);
+$output = json_decode(file_get_contents('php://input'));
 $chat_id = $output['message']['chat']['id'];
 $first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
