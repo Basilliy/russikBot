@@ -10,12 +10,8 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
- 
-$fp = (json_decode(file_get_contents('user.json')));
-$key = "2";
-$value = "hi";
-AddUser($key,$fp,$value);
-//chekUser($fp, "User");
+
+
 
 
 if($message == '/start'){
@@ -38,23 +34,17 @@ if($message == '/start'){
     sendMessage($chat_id, $message.$reply_markup);
 }
 
-else{
+else {
 
-  //  $fp = (json_decode(file_get_contents('user.json')));
-  //  print_r($fp);
-  //  chekUser($fp, "User");
-
-    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-//echo $update;
-    sendMessage($chat_id, $fuck);
-
-
+    $fp = json_decode(file_get_contents('users.json'), true);
+    if (chekUser($fp, "User") == false) {
+        AddUser($chat_id,$fp,$message);
+    }
+    else{
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+        sendMessage($chat_id, $fuck);
+    }
 }
-
-
-
-
-
 
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
