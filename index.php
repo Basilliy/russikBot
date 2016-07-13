@@ -40,9 +40,9 @@ if($message == '/start'){
 
 else{
 
-    $fp = (json_decode(file_get_contents('user.json')));
-    print_r($fp);
-    chekUser($fp, "User");
+  //  $fp = (json_decode(file_get_contents('user.json')));
+  //  print_r($fp);
+  //  chekUser($fp, "User");
 
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 //echo $update;
