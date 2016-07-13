@@ -15,3 +15,30 @@ print_r('out=',serialize($output));
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 //echo $update;
 $update = file_get_contents($url."/sendmessage?chat_id=".$chat_id."&text=$fuck");
+
+sendMessage($chat_id, $fuck);
+
+if($message == '/help'){
+    $reply_markup = '';
+//    $buttons = [[['text' => 'tekst',
+//        'request_contact' => true ,
+//        'request_location' => false ]]];
+    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
+    //'request_contact' => true]]];
+    $buttons = [['10','23','23'],['10','23','23']];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => true,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard . '';
+    $message = '121';
+    sendMessage($chat_id, $message.$reply_markup);
+}
+
+function sendMessage($chat_id, $message) {
+    // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
+    file_get_contents("https://api.telegram.org/bot229793781:AAG4aCD-fGPtUoxHXUO3TOlx9zR2ZTfJxrM/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
+}
