@@ -13,10 +13,10 @@ $message = $output['message']['text'];
 
 if($message == '/help'){
     $reply_markup = '';
-//    $buttons = [[['text' => 'tekst',
-//        'request_contact' => true ,
-//        'request_location' => false ]]];
-    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
+    $buttons = [[['text' => 'tekst',
+        'request_contact' => true ,
+        'request_location' => false ]]];
+     $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
     $buttons = [['10','23','23'],['10','23','23']];
     $keyboard = json_encode($keyboard = [
