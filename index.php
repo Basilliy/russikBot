@@ -64,8 +64,9 @@ function chekUser($mass){
     }
 
 }
-function AddUser($user_id, $mass,$message){
+function AddUser($user_id,$mass,$message){
     $mass[$user_id] = $message;
+    print_r('TIY');
     foreach ( $mass as $key=> $value) {
         echo $key." ";
     }
