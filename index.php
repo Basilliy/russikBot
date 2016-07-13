@@ -11,14 +11,6 @@ $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
 
-
-if($message != '/help') {
-    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-//echo $update;
-    $update = file_get_contents($url . "/sendmessage?chat_id=" . $chat_id . "&text=$fuck");
-
-    sendMessage($chat_id, $fuck);
-}
 if($message == '/help'){
     $reply_markup = '';
 //    $buttons = [[['text' => 'tekst',
@@ -39,10 +31,16 @@ if($message == '/help'){
     sendMessage($chat_id, $reply_markup);
 }
 
+else{
+
+    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+//echo $update;
+    $update = file_get_contents($url."/sendmessage?chat_id=".$chat_id."&text=$fuck");
+
+    sendMessage($chat_id, $fuck);
 
 
-
-
+}
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
