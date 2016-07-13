@@ -27,8 +27,9 @@ if($message == '/help'){
         'selective' => true
     ]);
     $reply_markup = '&reply_markup=' . $keyboard . '';
-    $message = '1';
-    sendMessage($chat_id, $message.$reply_markup);
+    $message = '';
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=". $message.$reply_markup."&parse_mode=HTML");
+
 }
 
 else{
@@ -37,11 +38,7 @@ else{
 //echo $update;
     $update = file_get_contents($url."/sendmessage?chat_id=".$chat_id."&text=$fuck");
 
-    sendMessage($chat_id, $fuck);
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$update."&parse_mode=HTML");
 
 
-}
-function sendMessage($chat_id, $message) {
-    // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
 }
