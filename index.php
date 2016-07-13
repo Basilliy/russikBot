@@ -10,7 +10,7 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
-print_r('out=',$output);
+print_r('out=',serialize($output));
 
 $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 //echo $update;
