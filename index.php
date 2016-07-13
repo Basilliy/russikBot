@@ -67,4 +67,6 @@ function chekUser($mass){
 }
 function AddUser($user_id, $mass,$message){
     $mass[$user_id] = $message;
+    $arr3 = json_encode($mass);
+    file_put_contents('user.json', $arr3);
 }
