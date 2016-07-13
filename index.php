@@ -61,7 +61,7 @@ function sendMessage($chat_id, $message) {
 function chekUser($mass){
 
     foreach ( $mass as $key=> $value) {
-       echo $value;
+       echo $value." ";
     }
 
 }
