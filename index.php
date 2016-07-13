@@ -13,7 +13,7 @@ $message = $output['message']['text'];
 
 $key = "1";
 $value = "hi";
-AddUser($key ,$fp,$value);
+AddUser($fp,$value);
 chekUser($fp, "User");
 
 
@@ -71,12 +71,9 @@ function chekUser($mass,$user_id){
     }
 return $is;
 }
-function AddUser($user_id,$mass,$message){
-    $mass[$user_id] = $message;
-    print_r('TIY');
-    foreach ( $mass as $key=> $value) {
-        echo $key." ";
-    }
+function AddUser($mass,$message){
+    $mass[] = $message;
+
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
 }
