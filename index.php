@@ -11,8 +11,17 @@ $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
 
+
+
+
+
 $fp = (json_decode(file_get_contents('user.json')));
 print_r($fp);
+chekUser($fp);
+
+
+
+
 
 if($message == '/help'){
     $reply_markup = '';
@@ -47,5 +56,12 @@ function sendMessage($chat_id, $message) {
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
 
 
+
+}
+function chekUser($mass){
+
+    foreach ( $mass as $key=> $value) {
+       echo $value;
+    }
 
 }
