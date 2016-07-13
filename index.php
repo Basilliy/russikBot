@@ -27,8 +27,8 @@ if($message == '/help'){
         'selective' => true
     ]);
     $reply_markup = '&reply_markup=' . $keyboard . '';
-    $message = '121';
-    sendMessage($chat_id, $reply_markup);
+    $message = '1';
+    sendMessage($chat_id, $message.$reply_markup);
 }
 
 else{
