@@ -15,7 +15,7 @@ $fp = (json_decode(file_get_contents('user.json')));
 $key = "2";
 $value = "hi";
 AddUser($key,$fp,$value);
-chekUser($fp, "User");
+//chekUser($fp, "User");
 
 
 if($message == '/start'){
