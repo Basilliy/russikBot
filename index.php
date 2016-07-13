@@ -13,13 +13,12 @@ $message = $output['message']['text'];
 
 
 
- 
+
 
 $fp = (json_decode(file_get_contents('user.json')));
 print_r($fp);
-chekUser($fp);
-AddUser('1',$fp,'hi');
-print_r($fp);
+chekUser($fp, "User");
+//AddUser('1',$fp,'hi');
 
 
 if($message == '/help'){
@@ -57,10 +56,12 @@ function sendMessage($chat_id, $message) {
 
 
 }
-function chekUser($mass){
+function chekUser($mass,$user_id){
 
     foreach ( $mass as $key=> $value) {
-       echo $key." ";
+       if($key==$user_id){
+        echo"Find";
+       }
     }
 
 }
