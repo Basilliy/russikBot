@@ -11,9 +11,6 @@ $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
 
-
-
-$fp = (json_decode(file_get_contents('user.json')));
 $key = "1";
 $value = "hi";
 AddUser($key,$fp,$value);
@@ -42,7 +39,9 @@ if($message == '/start'){
 
 else{
 
-
+    $fp = (json_decode(file_get_contents('user.json')));
+    print_r($fp);
+    chekUser($fp, "User");
 
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
 //echo $update;
