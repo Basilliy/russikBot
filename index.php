@@ -18,7 +18,7 @@ if($message == '/help'){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $buttons = [['10','23','23'],['10','23','23']];
+    $buttons = [['en'],['de']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -43,5 +43,5 @@ else{
 }
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
-    file_get_contents("https://api.telegram.org/bot229793781:AAG4aCD-fGPtUoxHXUO3TOlx9zR2ZTfJxrM/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
 }
