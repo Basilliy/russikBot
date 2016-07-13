@@ -18,7 +18,7 @@ $message = $output['message']['text'];
 $fp = (json_decode(file_get_contents('user.json')));
 print_r($fp);
 chekUser($fp);
-AddUser(1,$fp,'hi');
+AddUser('1',$fp,'hi');
 print_r($fp);
 
 
