@@ -189,3 +189,4 @@ $keyboard = json_encode($keyboard);
      $reply_markup = '&reply_markup=' . $keyboard . '';
     return $reply_markup;
 }
+print_r($output);
