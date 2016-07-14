@@ -14,7 +14,8 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 if($message == '/start'){
     $message = 'Hello, i am Marvin bot.';
-    sendMessage($chat_id, $message.printKeybord());
+    sendMessage($chat_id, $message.printKeybord().inlineKeybord());
+    
 }
 
 else{
@@ -122,6 +123,25 @@ function printKeybord(){
         'selective' => true
     ]);
     $reply_markup = '&reply_markup=' . $keyboard . '';
+    
+    return $reply_markup;
+}
+function inlineKeybord(){
+            $reply_markup = '';
+//    $buttons = [[['text' => 'tekst',
+//        'request_contact' => true ,
+//        'request_location' => false ]]];
+    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
+    //'request_contact' => true]]];
+    $InlineKeyboardButton = [['Genrrate Insult'],['Language','Homepage']];
+    $inline_keyboard = json_encode($inline_keyboard = [
+        'keyboard' => $InlineKeyboardButton /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => true,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $inline_keyboard . '';
     
     return $reply_markup;
 }
