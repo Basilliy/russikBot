@@ -43,8 +43,6 @@ else {
     }
     else{
         checkLanguage($fp, $chat_id);
-        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-        sendMessage($chat_id, $fuck);
     }
 
 }
@@ -69,8 +67,14 @@ function AddUser($user_id,$mass,$message){
     $mass[$user_id] = $message;
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
-    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-    sendMessage($user_id, $fuck);
+        if($language =='en'){
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+        sendMessage($chat_id, $fuck);
+    }
+    if($language =='de'){
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+        sendMessage($chat_id, $fuck);
+    }
 }
 function checkLanguage($mass,$chat_id){
     $language = 'de';
