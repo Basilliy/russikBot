@@ -69,7 +69,7 @@ if($message == 'de'){
 }
 else{
    // $fp = json_decode(file_get_contents('user.json'), true);
-   // checkLanguage($fp, $chat_id);
+    checkLanguage($fp, $chat_id);
 }
 }
 }
