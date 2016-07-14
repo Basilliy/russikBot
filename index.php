@@ -12,7 +12,7 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 
 $fp = json_decode(file_get_contents('users.json'));
-print_r($fp);
+echo $fp;
 
 if($message == '/start'){
     $reply_markup = '';
