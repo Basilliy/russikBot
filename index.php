@@ -127,19 +127,11 @@ function printKeybord(){
     return $reply_markup;
 }
 function inlineKeybord(){
-            $reply_markup = '';
-//    $buttons = [[['text' => 'tekst',
-//        'request_contact' => true ,
-//        'request_location' => false ]]];
-    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
-    //'request_contact' => true]]];
-    $InlineKeyboardButton = [
-        'text' => "Перейти на Яндекс", 
-        'url' => "https://ya.ru"];
-    $inline_keyboard = json_encode($inline_keyboard = [
-        'inline_keyboard' => $InlineKeyboardButton /*[$buttons]*/,
-    ]);
-    $reply_markup = '&reply_markup=' . $inline_keyboard . '';
-    
+$x1 = array("text"=>"First Button","callback_data"=>"ONE");
+$x2 = array("text"=>"Second Button","callback_data"=>"TWO");
+$opz = [[$x1,$x2]];
+$keyboard=array("inline_keyboard"=>$opz);
+$keyboard = json_encode($keyboard);
+     $reply_markup = '&reply_markup=' . $keyboard . '';
     return $reply_markup;
 }
