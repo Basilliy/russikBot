@@ -13,23 +13,8 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
 if($message == '/start'){
-    $reply_markup = '';
-//    $buttons = [[['text' => 'tekst',
-//        'request_contact' => true ,
-//        'request_location' => false ]]];
-    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
-    //'request_contact' => true]]];
-    $buttons = [['Genrrate Insult'],['Language','Homepage']];
-    $keyboard = json_encode($keyboard = [
-        'keyboard' => $buttons /*[$buttons]*/,
-        'resize_keyboard' => true,
-        'one_time_keyboard' => true,
-        'parse_mode' => 'HTML',
-        'selective' => true
-    ]);
-    $reply_markup = '&reply_markup=' . $keyboard . '';
     $message = 'Hello, i am Marvin bot.';
-    sendMessage($chat_id, $message.$reply_markup);
+    sendMessage($chat_id, $message.printKeybord());
 }
 
 else{
@@ -85,7 +70,7 @@ function english($chat_id){
 }
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
 }
 function checkUser($mass,$chat_id){
     $is = false;
@@ -120,4 +105,23 @@ function checkLanguage($mass,$chat_id){
     if($language =='de'){
         deutch($chat_id);
     }
+}
+function printKeybord(){
+        $reply_markup = '';
+//    $buttons = [[['text' => 'tekst',
+//        'request_contact' => true ,
+//        'request_location' => false ]]];
+    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
+    //'request_contact' => true]]];
+    $buttons = [['Genrrate Insult'],['Language','Homepage']];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => true,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard . '';
+    
+    return $reply_markup;
 }
