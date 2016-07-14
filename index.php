@@ -139,7 +139,7 @@ function printKeybord(){
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
-        'one_time_keyboard' => true,
+        'one_time_keyboard' => false,
         'parse_mode' => 'HTML',
         'selective' => true
     ]);
