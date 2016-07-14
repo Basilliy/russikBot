@@ -32,6 +32,8 @@ if($message == '/start'){
     sendMessage($chat_id, $message.$reply_markup);
 }
 
+else{
+
 if($message == 'en'){
    if (checkUser($fp, $chat_id) == false) {
         AddUser($chat_id,$fp,$message);
@@ -49,6 +51,7 @@ if($message == 'en'){
     english($chat_id);
     
 }
+else{
 if($message == 'de'){
     if (checkUser($fp, $chat_id) == false) {
        AddUser($chat_id,$fp,$message);
@@ -68,6 +71,8 @@ if($message == 'de'){
 else{
     $fp = json_decode(file_get_contents('user.json'), true);
     checkLanguage($fp, $chat_id);
+}
+}
 }
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
