@@ -138,7 +138,7 @@ function printKeybord(){
     $buttons = [['Genrrate Insult'],['Language','Homepage']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
-        'resize_keyboard' => true,
+        'resize_keyboard' => false,
         'one_time_keyboard' => false,
         'parse_mode' => 'HTML',
         'selective' => true
