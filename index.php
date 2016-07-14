@@ -13,8 +13,8 @@ $message = $output['message']['text'];
 
 $fp = json_decode(file_get_contents('user.json'),true);
 print_r( $fp);
-$fp[5] = 'hew';
-$fp[6] = 'hew';
+$fp[7] = 'hew';
+$fp[8] = 'hew';
 $arr3 = json_encode($fp);
 file_put_contents('user.json', $arr3);
 
