@@ -19,7 +19,7 @@ if($message == '/start'){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $buttons = [['en'],['de']];
+    $buttons = [['Genrrate Insult'],[['Language'],['Homepage']]];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
