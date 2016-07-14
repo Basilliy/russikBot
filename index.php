@@ -138,7 +138,7 @@ function printKeybord(){
     $buttons = [['Genrrate Insult'],['Language','Homepage']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
-        'resize_keyboard' => false,
+        'resize_keyboard' => true,
         'one_time_keyboard' => false,
         'parse_mode' => 'HTML',
         'selective' => true
@@ -154,7 +154,7 @@ $x2 = array("text"=>"de","callback_data"=>"de");
 $x3 = array("text"=>"ru","callback_data"=>"ru");
 $x4 = array("text"=>"fr","callback_data"=>"fr");
 $opz = [[$x1,$x2,$x3,$x4]];
-$keyboard=array("inline_keyboard"=>$opz);
+$keyboard=array("inline_keyboard"=>$opz,'resize_keyboard' => true);
 $keyboard = json_encode($keyboard);
      $reply_markup = '&reply_markup=' . $keyboard . '';
     return $reply_markup;
