@@ -101,7 +101,7 @@ function AddUser($chat_id,$mass,$message){
     }
 }
 function checkLanguage($mass,$chat_id){
-    $language = '';
+    $language = 'de';
     foreach ( $mass as $key=> $value) {
         if($key==$chat_id){
             $language = $value;
