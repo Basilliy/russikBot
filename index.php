@@ -128,10 +128,10 @@ function printKeybord(){
 }
 function inlineKeybord(){
 $reply_markup = '';
-$x1 = array("text"=>"First Button","callback_data"=>"en");
-$x2 = array("text"=>"Second Button","callback_data"=>"de");
-$x3 = array("text"=>"First Button","callback_data"=>"ru");
-$x4 = array("text"=>"Second Button","callback_data"=>"fr");
+$x1 = array("text"=>"en","callback_data"=>"en");
+$x2 = array("text"=>"de","callback_data"=>"de");
+$x3 = array("text"=>"ru","callback_data"=>"ru");
+$x4 = array("text"=>"fr","callback_data"=>"fr");
 $opz = [[$x1,$x2,$x3,$x4]];
 $keyboard=array("inline_keyboard"=>$opz);
 $keyboard = json_encode($keyboard);
