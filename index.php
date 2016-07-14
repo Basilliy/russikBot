@@ -9,7 +9,7 @@ $output = json_decode(file_get_contents('php://input'), true);
 
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-$language = $output['callback_query']['data'];
+
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
@@ -32,38 +32,7 @@ switch ($message) {
         checkLanguage($fp, $chat_id);
 }
 
-switch ($language) {
-    case 'en':
-         if (checkUser($fp, $chat_id) != false) {
-            foreach ( $fp as $key=> $value) {
-              if($key==$chat_id){
-                 $fp[$key] = $language;
-              }
-             }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             //english($chat_id);
-          }
-          else{
-            AddUser($chat_id,$fp,$language);
-          }
-        break;
-    case 'de':
-        if (checkUser($fp, $chat_id) != false) {
-          foreach ( $fp as $key=> $value) {
-           if($key==$chat_id){
-                $fp[$key] = $language;
-            }
-        }
-         $arr3 = json_encode($fp);
-         file_put_contents('user.json', $arr3);
-         //deutch($chat_id);
-        }
-        else{
-          AddUser($chat_id,$fp,$language);
-        }
-         break;
-}
+
 
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
