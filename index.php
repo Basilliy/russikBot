@@ -9,7 +9,7 @@ $output = json_decode(file_get_contents('php://input'), true);
 
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-$language = $output['callback_query']['data'];
+//$language = $output['callback_query']['data'];
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
