@@ -9,63 +9,13 @@ $output = json_decode(file_get_contents('php://input'), true);
 
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-//$language = $output['callback_query']['data'];
+$language = $output['callback_query']['data'];
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
-//if($message == '/start'){
-//    $message = 'Hello, i am Marvin bot.';
-//    sendMessage($chat_id,$message.printKeybord());
-//    
-//}
-
-//else{
-
-//if($message == 'en'){
-//   if (checkUser($fp, $chat_id) != false) {
-//     foreach ( $fp as $key=> $value) {
- //          if($key==$chat_id){
- //               $fp[$key] = $message;
-//            }
-//        }
-//    $arr3 = json_encode($fp);
-//    file_put_contents('user.json', $arr3);
-//    english($chat_id);
-//    }
- //  else{
- //      AddUser($chat_id,$fp,$message);
-//    }
-
-    
-    
-//}
-//else{
-//if($message == 'de'){
-//    if (checkUser($fp, $chat_id) != false) {
-//     foreach ( $fp as $key=> $value) {
-//          if($key==$chat_id){
-//                $fp[$key] = $message;
-//            }
-//        }
-//   $arr3 = json_encode($fp);
-//    file_put_contents('user.json', $arr3);
-//       deutch($chat_id);
-//    }
-//   else{
-//       AddUser($chat_id,$fp,$message);
-//    }
- 
-//}
-//else{
-   // $fp = json_decode(file_get_contents('user.json'), true);
-//    checkLanguage($fp, $chat_id);
-//}
-//}
-//}
-
 switch ($message) {
     case '/start':
-    $message = 'Hello, i am Marvin bot.';
+        $message = 'Hello, i am Marvin bot.';
     sendMessage($chat_id,$message.printKeybord());
         break;
     case 'Language':
@@ -78,8 +28,8 @@ switch ($message) {
     case 'Homepage':
         echo "i равно 2";
         break;
-          default:
-          //checkLanguage($fp, $chat_id);
+    default:
+        checkLanguage($fp, $chat_id);
 }
 
 switch ($language) {
