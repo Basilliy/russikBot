@@ -14,7 +14,7 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'),true);
 print_r( $fp);
 $fp[1] = 'hi';
-$arr3 = json_encode($mass);
+$arr3 = json_encode($fp);
 file_put_contents('user.json', $arr3);
 
 print_r($fp);
