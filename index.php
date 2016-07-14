@@ -37,14 +37,17 @@ if($message == 'en'){
         AddUser($chat_id,$fp,$message);
     }
    else{
+
        foreach ( $fp as $key=> $value) {
            if($key==$chat_id){
                 $fp[$key] = $message;
             }
         }
     }
+    $arr3 = json_encode($fp);
+    file_put_contents('user.json', $arr3);
     english($chat_id);
-    print_r($fp);
+    
 }
 if($message == 'de'){
     if (checkUser($fp, $chat_id) == false) {
@@ -58,9 +61,12 @@ if($message == 'de'){
         }
     }
     deutch($chat_id);
-    print_r($fp);
+    $arr3 = json_encode($fp);
+    file_put_contents('user.json', $arr3);
+
 }
 if(($message != 'de')&&($message != 'en')&&($message != '/start')){
+    $fp = json_decode(file_get_contents('user.json'), true);
     checkLanguage($fp, $chat_id);
 }
 function deutch($chat_id){
