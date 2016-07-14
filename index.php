@@ -65,7 +65,7 @@ if($message == 'de'){
     file_put_contents('user.json', $arr3);
 
 }
-if(($message != 'de')&&($message != 'en')&&($message != '/start')){
+else{
     $fp = json_decode(file_get_contents('user.json'), true);
     checkLanguage($fp, $chat_id);
 }
