@@ -35,38 +35,37 @@ if($message == '/start'){
 else{
 
 if($message == 'en'){
-   if (checkUser($fp, $chat_id) == false) {
-        AddUser($chat_id,$fp,$message);
-    }
-   else{
-
-       foreach ( $fp as $key=> $value) {
+   if (checkUser($fp, $chat_id) != false) {
+     foreach ( $fp as $key=> $value) {
            if($key==$chat_id){
                 $fp[$key] = $message;
             }
         }
-    }
     $arr3 = json_encode($fp);
     file_put_contents('user.json', $arr3);
+    }
+   else{
+       AddUser($chat_id,$fp,$message);
+    }
+
     english($chat_id);
     
 }
 else{
 if($message == 'de'){
-    if (checkUser($fp, $chat_id) == false) {
-       AddUser($chat_id,$fp,$message);
-    }
-    else{
-        foreach ( $fp as $key=> $value) {
-            if($key==$chat_id){
+    if (checkUser($fp, $chat_id) != false) {
+     foreach ( $fp as $key=> $value) {
+           if($key==$chat_id){
                 $fp[$key] = $message;
             }
         }
-    }
-    deutch($chat_id);
     $arr3 = json_encode($fp);
     file_put_contents('user.json', $arr3);
-
+    }
+   else{
+       AddUser($chat_id,$fp,$message);
+    }
+    deutch($chat_id);
 }
 else{
    // $fp = json_decode(file_get_contents('user.json'), true);
