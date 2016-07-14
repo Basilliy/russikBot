@@ -10,7 +10,10 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
+
+
 $fp = json_decode(file_get_contents('user.json'), true);
+
 
 if($message == '/start'){
     $reply_markup = '';
@@ -28,48 +31,24 @@ if($message == '/start'){
         'selective' => true
     ]);
     $reply_markup = '&reply_markup=' . $keyboard . '';
-    $message = 'Hello, i am Marvin bot.';
+    $message = 'language';
     sendMessage($chat_id, $message.$reply_markup);
 }
 
-if($message == 'en'){
- if (checkUser($fp, $chat_id) == false) {
-        AddUser($chat_id,$fp,$message);
-    }
- else{
-    	foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-          $value=$message;
-        }
-    }
-    }  
-    english();
-}
+else {
 
-if($message == 'de'){
- if (checkUser($fp, $chat_id) == false) {
+    $fp = json_decode(file_get_contents('user.json'), true);
+    if (checkUser($fp, $chat_id) == false) {
         AddUser($chat_id,$fp,$message);
     }
     else{
-    	foreach ( $fp as $key=> $value) {
-        if($key==$chat_id){
-          $value=$message;
-        }
-    }
-    }
-        deutch();
-}
-else {
         checkLanguage($fp, $chat_id);
-}
-function deutch(){
-	$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
         sendMessage($chat_id, $fuck);
+    }
+
 }
-function english(){
-	$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-        sendMessage($chat_id, $fuck);
-}
+
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
@@ -83,19 +62,15 @@ function checkUser($mass,$chat_id){
        if($key==$chat_id){
         $is = true;
        }
-    }  
+    }
 return $is;
 }
 function AddUser($user_id,$mass,$message){
     $mass[$user_id] = $message;
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
-    if($message =='en'){
-        english();
-    }
-    if($message =='de'){
-        deutch();
-    }
+    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+    sendMessage($user_id, $fuck);
 }
 function checkLanguage($mass,$chat_id){
     $language = 'de';
@@ -106,9 +81,11 @@ function checkLanguage($mass,$chat_id){
     }
 
     if($language =='en'){
-        english();
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+        sendMessage($chat_id, $fuck);
     }
     if($language =='de'){
-        deutch();
+        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+        sendMessage($chat_id, $fuck);
     }
 }
