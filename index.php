@@ -9,7 +9,7 @@ $output = json_decode(file_get_contents('php://input'), true);
 
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-
+$language = $output['callback_query']['data'];
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
@@ -22,7 +22,8 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
-    checkLanguage($fp,$chat_id);
+     case 'Genegate Insult':
+        checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
         echo "i равно 2";
@@ -31,6 +32,38 @@ switch ($message) {
         checkLanguage($fp, $chat_id);
 }
 
+switch ($language) {
+    case 'en':
+         if (checkUser($fp, $chat_id) != false) {
+            foreach ( $fp as $key=> $value) {
+              if($key==$chat_id){
+                 $fp[$key] = $language;
+              }
+             }
+             $arr3 = json_encode($fp);
+             file_put_contents('user.json', $arr3);
+             //english($chat_id);
+          }
+          else{
+            AddUser($chat_id,$fp,$language);
+          }
+        break;
+    case 'de':
+        if (checkUser($fp, $chat_id) != false) {
+          foreach ( $fp as $key=> $value) {
+           if($key==$chat_id){
+                $fp[$key] = $language;
+            }
+        }
+         $arr3 = json_encode($fp);
+         file_put_contents('user.json', $arr3);
+         //deutch($chat_id);
+        }
+        else{
+          AddUser($chat_id,$fp,$language);
+        }
+         break;
+}
 
 
 function deutch($chat_id){
@@ -86,7 +119,7 @@ function printKeybord(){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $buttons = [['Genrrate Insult'],['Language','Homepage']];
+    $buttons = [['Generate Insult'],['Language','Homepage']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
