@@ -13,7 +13,8 @@ $message = $output['message']['text'];
 
 $fp = json_decode(file_get_contents('user.json'),true);
 print_r( $fp);
-
+AddUser(1,$fp,'hi');
+print_r($fp);
 if($message == '/start'){
     $reply_markup = '';
 //    $buttons = [[['text' => 'tekst',
