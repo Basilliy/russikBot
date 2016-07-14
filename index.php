@@ -77,6 +77,36 @@ switch ($message) {
     case 'Homepage':
         echo "i равно 2";
         break;
+    case 'en':
+         if (checkUser($fp, $chat_id) != false) {
+            foreach ( $fp as $key=> $value) {
+              if($key==$chat_id){
+                 $fp[$key] = $message;
+              }
+             }
+             $arr3 = json_encode($fp);
+             file_put_contents('user.json', $arr3);
+             english($chat_id);
+          }
+          else{
+            AddUser($chat_id,$fp,$message);
+          }
+        break;
+    case 'de':
+        if (checkUser($fp, $chat_id) != false) {
+          foreach ( $fp as $key=> $value) {
+           if($key==$chat_id){
+                $fp[$key] = $message;
+            }
+        }
+         $arr3 = json_encode($fp);
+         file_put_contents('user.json', $arr3);
+         deutch($chat_id);
+        }
+        else{
+          AddUser($chat_id,$fp,$message);
+        }
+         break;
           default:
        echo "i не равно 0, 1 или 2";
 }
@@ -154,7 +184,7 @@ $x2 = array("text"=>"de","callback_data"=>"de");
 $x3 = array("text"=>"ru","callback_data"=>"ru");
 $x4 = array("text"=>"fr","callback_data"=>"fr");
 $opz = [[$x1,$x2,$x3,$x4]];
-$keyboard=array("inline_keyboard"=>$opz,'resize_keyboard' => true);
+$keyboard=array("inline_keyboard"=>$opz);
 $keyboard = json_encode($keyboard);
      $reply_markup = '&reply_markup=' . $keyboard . '';
     return $reply_markup;
