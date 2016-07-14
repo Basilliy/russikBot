@@ -11,13 +11,6 @@ $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
 
-$fp = json_decode(file_get_contents('user.json'),true);
-print_r( $fp);
-$fp[7] = 'hew';
-$fp[8] = 'hew';
-$arr3 = json_encode($fp);
-file_put_contents('user.json', $arr3);
-
 print_r($fp);
 
 if($message == '/start'){
