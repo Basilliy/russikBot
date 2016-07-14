@@ -12,55 +12,76 @@ $message = $output['message']['text'];
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
-if($message == '/start'){
-    $message = 'Hello, i am Marvin bot.';
-    sendMessage($chat_id,$message.inlineKeybord());
-    
-}
+//if($message == '/start'){
+//    $message = 'Hello, i am Marvin bot.';
+//    sendMessage($chat_id,$message.printKeybord());
+//    
+//}
 
-else{
+//else{
 
-if($message == 'en'){
-   if (checkUser($fp, $chat_id) != false) {
-     foreach ( $fp as $key=> $value) {
-           if($key==$chat_id){
-                $fp[$key] = $message;
-            }
-        }
-    $arr3 = json_encode($fp);
-    file_put_contents('user.json', $arr3);
-    english($chat_id);
-    }
-   else{
-       AddUser($chat_id,$fp,$message);
-    }
+//if($message == 'en'){
+//   if (checkUser($fp, $chat_id) != false) {
+//     foreach ( $fp as $key=> $value) {
+ //          if($key==$chat_id){
+ //               $fp[$key] = $message;
+//            }
+//        }
+//    $arr3 = json_encode($fp);
+//    file_put_contents('user.json', $arr3);
+//    english($chat_id);
+//    }
+ //  else{
+ //      AddUser($chat_id,$fp,$message);
+//    }
 
     
     
-}
-else{
-if($message == 'de'){
-    if (checkUser($fp, $chat_id) != false) {
-     foreach ( $fp as $key=> $value) {
-           if($key==$chat_id){
-                $fp[$key] = $message;
-            }
-        }
-    $arr3 = json_encode($fp);
-    file_put_contents('user.json', $arr3);
-       deutch($chat_id);
-    }
-   else{
-       AddUser($chat_id,$fp,$message);
-    }
+//}
+//else{
+//if($message == 'de'){
+//    if (checkUser($fp, $chat_id) != false) {
+//     foreach ( $fp as $key=> $value) {
+//          if($key==$chat_id){
+//                $fp[$key] = $message;
+//            }
+//        }
+//   $arr3 = json_encode($fp);
+//    file_put_contents('user.json', $arr3);
+//       deutch($chat_id);
+//    }
+//   else{
+//       AddUser($chat_id,$fp,$message);
+//    }
  
-}
-else{
+//}
+//else{
    // $fp = json_decode(file_get_contents('user.json'), true);
-    checkLanguage($fp, $chat_id);
+//    checkLanguage($fp, $chat_id);
+//}
+//}
+//}
+
+switch ($message) {
+    case '/start':
+    $message = 'Hello, i am Marvin bot.';
+    sendMessage($chat_id,$message.printKeybord());
+        break;
+    case 'Language':
+         $message = 'Choose language.';
+    sendMessage($chat_id,$message.inlineKeybord());
+        break;
+    case 'Genrrate Insult':
+        echo "i равно 2";
+        break;
+    case 'Homepage':
+        echo "i равно 2";
+        break;
+          default:
+       echo "i не равно 0, 1 или 2";
 }
-}
-}
+
+
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
     sendMessage($chat_id, $fuck);
