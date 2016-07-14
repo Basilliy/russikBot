@@ -44,6 +44,7 @@ if($message == 'en'){
         }
     }
     english($chat_id);
+    print_r($fp);
 }
 if($message == 'de'){
     if (checkUser($fp, $chat_id) == false) {
@@ -57,8 +58,9 @@ if($message == 'de'){
         }
     }
     deutch($chat_id);
+    print_r($fp);
 }
-if(($message != 'de')&&($message != 'en')&&($message != '/start')){
+else{
     checkLanguage($fp, $chat_id);
 }
 function deutch($chat_id){
