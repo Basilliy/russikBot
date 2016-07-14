@@ -29,7 +29,7 @@ if($message == '/start'){
         'selective' => true
     ]);
     $reply_markup = '&reply_markup=' . $keyboard . '';
-    $message = 'language';
+    $message = 'Hello, i am Marvin bot.';
     sendMessage($chat_id, $message.$reply_markup);
 }
 
