@@ -14,7 +14,7 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 if($message == '/start'){
     $message = 'Hello, i am Marvin bot.';
-    sendMessage($chat_id, $message.printKeybord().inlineKeybord());
+    sendMessage($chat_id, $message.inlineKeybord());
     
 }
 
