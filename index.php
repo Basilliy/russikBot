@@ -135,11 +135,7 @@ function inlineKeybord(){
     //'request_contact' => true]]];
     $InlineKeyboardButton = [['Genrrate Insult'],['Language','Homepage']];
     $inline_keyboard = json_encode($inline_keyboard = [
-        'keyboard' => $InlineKeyboardButton /*[$buttons]*/,
-        'resize_keyboard' => true,
-        'one_time_keyboard' => true,
-        'parse_mode' => 'HTML',
-        'selective' => true
+        'inline_keyboard' => $InlineKeyboardButton /*[$buttons]*/,
     ]);
     $reply_markup = '&reply_markup=' . $inline_keyboard . '';
     
