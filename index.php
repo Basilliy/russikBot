@@ -50,21 +50,21 @@ function sendMessage($chat_id, $message) {
 
 
 }
-function chekUser($mass,$user_id){
+function chekUser($mass,$chat_id){
  $is = false;
     foreach ( $mass as $key=> $value) {
-       if($key==$user_id){
+       if($key==$chat_id){
         $is = true;
        }
     }
 return $is;
 }
-function AddUser($user_id,$mass,$message){
-    $mass[$user_id] = $message;
+function AddUser($chat_id,$mass,$message){
+    $mass[$chat_id] = $message;
 
 
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-    sendMessage($$user_id, $fuck);
+    sendMessage($chat_id, $fuck);
 }
