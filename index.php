@@ -41,8 +41,6 @@ else {
     }
     else{
         checkLanguage($fp, $chat_id);
-        $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-        sendMessage($chat_id, $fuck);
     }
 
 }
