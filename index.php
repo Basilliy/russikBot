@@ -60,13 +60,8 @@ if($message == 'de'){
     deutch($chat_id);
     print_r($fp);
 }
-else{
-    if(checkUser($fp,$chat_id)==false){
-        AddUser($chat_id,$fp,$message);
-    }
-    else{
+if(($message != 'de')&&($message != 'en')&&($message != '/start')){
     checkLanguage($fp, $chat_id);
-    }
 }
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
