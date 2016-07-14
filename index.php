@@ -108,7 +108,7 @@ switch ($message) {
         }
          break;
           default:
-       echo "i не равно 0, 1 или 2";
+          checkLanguage($fp, $chat_id);
 }
 
 
