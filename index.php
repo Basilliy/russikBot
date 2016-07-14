@@ -61,7 +61,7 @@ if($message == '/start'){
 //    print_r($fp);
 //}
 else{
-    if(checkUser($fp,$chat_id!=true)){
+    if(checkUser($fp,$chat_id)==false){
         AddUser($chat_id,$fp,$message);
     }
     else{
