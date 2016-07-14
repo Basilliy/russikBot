@@ -58,7 +58,7 @@ function checkUser($mass,$chat_id){
        if($key==$chat_id){
         $is = true;
        }
-    }
+    } 
 return $is;
 }
 function AddUser($user_id,$mass,$message){
