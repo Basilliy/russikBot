@@ -128,9 +128,11 @@ function printKeybord(){
 }
 function inlineKeybord(){
 $reply_markup = '';
-$x1 = array("text"=>"First Button","callback_data"=>"ONE");
-$x2 = array("text"=>"Second Button","callback_data"=>"TWO");
-$opz = [[$x1,$x2]];
+$x1 = array("text"=>"First Button","callback_data"=>"en");
+$x2 = array("text"=>"Second Button","callback_data"=>"de");
+$x3 = array("text"=>"First Button","callback_data"=>"ru");
+$x4 = array("text"=>"Second Button","callback_data"=>"fr");
+$opz = [[$x1,$x2,$x3,$x4]];
 $keyboard=array("inline_keyboard"=>$opz);
 $keyboard = json_encode($keyboard);
      $reply_markup = '&reply_markup=' . $keyboard . '';
