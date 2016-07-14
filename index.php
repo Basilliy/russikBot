@@ -11,7 +11,7 @@ $chat_id = $output['message']['chat']['id'];
 //$first_name = $output['message']['chat']['first_name'];
 $message = $output['message']['text'];
 
-$fp = json_decode(file_get_contents('users.json'));
+$fp = json_decode(file_get_contents('user.json'));
 echo $fp;
 
 if($message == '/start'){
@@ -36,7 +36,7 @@ if($message == '/start'){
 
 else {
 
-    $fp = json_decode(file_get_contents('users.json'), true);
+    $fp = json_decode(file_get_contents('user.json'), true);
     if (checkUser($fp, $chat_id) == false) {
         AddUser($chat_id,$fp,$message);
     }
