@@ -32,36 +32,41 @@ if($message == '/start'){
     sendMessage($chat_id, $message.$reply_markup);
 }
 
-if($message == 'en'){
-    if (checkUser($fp, $chat_id) == false) {
-        AddUser($chat_id,$fp,$message);
-    }
-    else{
-        foreach ( $fp as $key=> $value) {
-            if($key==$chat_id){
-                $value=$message;
-            }
-        }
-    }
-    english($chat_id);
-    print_r($fp);
-}
-if($message == 'de'){
-    if (checkUser($fp, $chat_id) == false) {
-        AddUser($chat_id,$fp,$message);
-    }
-    else{
-        foreach ( $fp as $key=> $value) {
-            if($key==$chat_id){
-                $value=$message;
-            }
-        }
-    }
-    deutch($chat_id);
-    print_r($fp);
-}
+//if($message == 'en'){
+ //   if (checkUser($fp, $chat_id) == false) {
+//        AddUser($chat_id,$fp,$message);
+//    }
+ //   else{
+ //       foreach ( $fp as $key=> $value) {
+ //           if($key==$chat_id){
+//                $value=$message;
+//            }
+//        }
+//    }
+//    english($chat_id);
+//    print_r($fp);
+//}
+//if($message == 'de'){
+//    if (checkUser($fp, $chat_id) == false) {
+ //       AddUser($chat_id,$fp,$message);
+//    }
+//    else{
+//        foreach ( $fp as $key=> $value) {
+//            if($key==$chat_id){
+//                $value=$message;
+//            }
+//        }
+//    }
+//    deutch($chat_id);
+//    print_r($fp);
+//}
 else{
+    if(checkUser($fp,$chat_id!=true)){
+        AddUser($chat_id,$fp,$message);
+    }
+    else{
     checkLanguage($fp, $chat_id);
+    }
 }
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
