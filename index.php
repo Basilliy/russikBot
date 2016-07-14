@@ -14,7 +14,7 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 if($message == '/start'){
     $message = 'Hello, i am Marvin bot.';
-    sendMessage($chat_id,inlineKeybord());
+    sendMessage($chat_id,$message.inlineKeybord());
     
 }
 
@@ -126,7 +126,7 @@ function printKeybord(){
     
     return $reply_markup;
 }
-function inlineKeybord(){
+function inlineKeybord(){ ///Выводяться только с пыстым сообщением
 $reply_markup = '';
 $x1 = array("text"=>"en","callback_data"=>"en");
 $x2 = array("text"=>"de","callback_data"=>"de");
