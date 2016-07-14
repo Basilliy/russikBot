@@ -133,7 +133,9 @@ function inlineKeybord(){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $InlineKeyboardButton = ['Genrrate Insult'];
+    $InlineKeyboardButton = [
+        'text' => "Перейти на Яндекс", 
+        'url' => "https://ya.ru"];
     $inline_keyboard = json_encode($inline_keyboard = [
         'inline_keyboard' => $InlineKeyboardButton /*[$buttons]*/,
     ]);
