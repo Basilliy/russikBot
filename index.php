@@ -14,7 +14,7 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 if($message == '/start'){
     $message = 'Hello, i am Marvin bot.';
-    sendMessage($chat_id, $message.inlineKeybord());
+    sendMessage($chat_id,inlineKeybord());
     
 }
 
@@ -133,7 +133,7 @@ function inlineKeybord(){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $InlineKeyboardButton = [['Genrrate Insult'],['Language','Homepage']];
+    $InlineKeyboardButton = ['Genrrate Insult'];
     $inline_keyboard = json_encode($inline_keyboard = [
         'inline_keyboard' => $InlineKeyboardButton /*[$buttons]*/,
     ]);
