@@ -22,8 +22,7 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
-    case 'Genrrate Insult':
-        function checkLanguage($fp,$chat_id);
+    checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
         echo "i равно 2";
