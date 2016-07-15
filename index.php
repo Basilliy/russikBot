@@ -10,7 +10,7 @@ $lang = json_decode(file_get_contents('php://input'), true);
 //$language = $lang['callback_query']['id'];
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-$language = $lang['callback_query']['id'];
+//$language = $lang['callback_query']['id'];
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
