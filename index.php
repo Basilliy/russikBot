@@ -11,6 +11,12 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $language = $output['callback_query']['data'];
 
+if(empty($language)==true)
+{
+    $message = "ok";
+    sendMessage($chat_id,$message.printKeybord());
+}
+
 $fp = json_decode(file_get_contents('user.json'), true);
 
 switch ($message) {
