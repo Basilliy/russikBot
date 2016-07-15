@@ -15,7 +15,6 @@ if($message == 'inline'){
     $message = 'InlineKeybord.';
     sendMessage($chat_id,$message.inlineKeybord());
 }
-Callback_ID();
 switch ($language) {
     case 'en':
         $message = 'English';
@@ -182,6 +181,3 @@ $keyboard = json_encode($keyboard);
     return $reply_markup;
 }
 print_r($output); 
-function Answer($id){
-    $answerCallbackQuery = '';
-}
