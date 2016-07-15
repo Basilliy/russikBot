@@ -11,13 +11,13 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $language = $output['callback_query']['data'];
 
-if($language =='en')
+if($language =='/start')
 {
     $message = "en";
     sendMessage($chat_id,$message);
 }
 
-if($language =='de')
+if($language =='Hello, i am Marvin bot')
 {
     $message = "de";
     sendMessage($chat_id,$message);
