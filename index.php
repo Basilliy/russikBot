@@ -11,18 +11,6 @@ $language = $lang['callback_query']['data'];
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 
-sendMessage($chat_id,$language);
-if($language =='en')
-{
-    $message = "en";
-    sendMessage($chat_id,$message);
-}
-
-if($language =='de')
-{
-    $message = "de";
-    sendMessage($chat_id,$message);
-}
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
@@ -45,12 +33,12 @@ switch ($message) {
         checkLanguage($fp, $chat_id);
 }
 
-switch ($language) {
+switch ($message) {
     case 'en':
          if (checkUser($fp, $chat_id) != false) {
             foreach ( $fp as $key=> $value) {
               if($key==$chat_id){
-                 $fp[$key] = $language;
+                 $fp[$key] = $message;
               }
              }
              $arr3 = json_encode($fp);
@@ -58,14 +46,14 @@ switch ($language) {
              //english($chat_id);
           }
           else{
-            AddUser($chat_id,$fp,$language);
+            AddUser($chat_id,$fp,$message);
           }
         break;
     case 'de':
         if (checkUser($fp, $chat_id) != false) {
           foreach ( $fp as $key=> $value) {
            if($key==$chat_id){
-                $fp[$key] = $language;
+                $fp[$key] = $message;
             }
         }
          $arr3 = json_encode($fp);
@@ -73,7 +61,7 @@ switch ($language) {
          //deutch($chat_id);
         }
         else{
-          AddUser($chat_id,$fp,$language);
+          AddUser($chat_id,$fp,$message);
         }
          break;
 }
