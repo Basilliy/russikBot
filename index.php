@@ -48,7 +48,7 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-        file_get_contents('https://vk.com/feed'); 
+        echo("<script>location.href='http://vk.com'</script>");
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
