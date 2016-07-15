@@ -21,11 +21,11 @@ switch ($language) {
         break;
     case 'de':
         $message = 'de';
-    //sendMessage($chat_id,$message.printKeybord());
+    sendMessage($chat_id,$message.printKeybord());
         break;
     default:
-      $message = 'russik';
-    sendMessage($chat_id,$message);
+      //$message = 'russik';
+    //sendMessage($chat_id,$message);
 }
 
 if($message == 'inline'){
