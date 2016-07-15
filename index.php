@@ -7,7 +7,7 @@ $url = 'https://api.telegram.org/bot' . $access_token;
 
 $output = json_decode(file_get_contents('php://input'), true);
 $lang = json_decode(file_get_contents('php://input'), true);
-$language = $lang['callback_query']['id'];
+$language = $lang["callback_query"]["id"];
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 
@@ -169,46 +169,7 @@ function languageKeybord(){
     return $reply_markup;
     }
 
-
-private $data = array();
-
-
-public function getData() {
-        if (empty($this->data)) {
-            $rawData = file_get_contents("php://input");
-            return json_decode($rawData, true);
-        } else {
-            return $this->data;
-        }
-    }
-    public function setData(array $data) {
-        $this->data = $data;
-    }
-    public function Text() {
-        return $this->data["message"] ["text"];
-    }
-
-    public function ChatID() {
-        return $this->data["message"]["chat"]["id"];
-    }
-
-    public function Callback_Query() {
-        return $this->data["callback_query"];
-    }
-
-    public function Callback_ID() {
-        return $this->data["callback_query"]["id"];
-    }
-
-    public function Callback_Data() {
-        sendMessage($this->chat_id, $this->data["callback_query"]["data"]);
-    }
-
-
-
-
-
-function inlineKeybord(){ ///Выводяться только с пыстым сообщением
+function inlineKeybord(){ ///Выводяться только с сообщением
 $reply_markup = '';
 $x1 = array("text"=>"en","callback_data"=>"en");
 $x2 = array("text"=>"de","callback_data"=>"de");
