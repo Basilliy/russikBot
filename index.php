@@ -10,7 +10,15 @@ $lang = json_decode(file_get_contents('php://input'), true);
 //$language = $lang['callback_query']['id'];
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
-
+$language = $output['callback_query']['id'];
+if($language=='en'){
+    $message = 'en.';
+    sendMessage($chat_id,$message);
+}
+if($language=='de'){
+    $message = 'de.';
+    sendMessage($chat_id,$message);
+}
 if($message == 'inline'){
     $message = 'InlineKeybord.';
     sendMessage($chat_id,$message.inlineKeybord());
