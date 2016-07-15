@@ -11,10 +11,16 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $language = $output['callback_query']['data'];
 
-if(empty($language)==true)
+if($language)=='en')
 {
-    $message = "ok";
-    sendMessage($chat_id,$message.printKeybord());
+    $message = "en";
+    sendMessage($chat_id,$message);
+}
+
+if($language)=='de')
+{
+    $message = "de";
+    sendMessage($chat_id,$message);
 }
 
 $fp = json_decode(file_get_contents('user.json'), true);
