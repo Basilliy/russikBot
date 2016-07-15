@@ -33,7 +33,7 @@ switch ($message) {
         break;
     case 'Language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.inlineKeybord());
+    sendMessage($chat_id,$message.languageKeybord());
         break;
      case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
@@ -42,7 +42,7 @@ switch ($message) {
         echo "i равно 2";
         break;
     default:
-        //checkLanguage($fp, $chat_id);
+        checkLanguage($fp, $chat_id);
 }
 
 switch ($language) {
@@ -144,6 +144,27 @@ function printKeybord(){
     
     return $reply_markup;
 }
+
+function languageKeybord(){
+            $reply_markup = '';
+//    $buttons = [[['text' => 'tekst',
+//        'request_contact' => true ,
+//        'request_location' => false ]]];
+    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
+    //'request_contact' => true]]];
+    $buttons = [['Generate Insult'],['en','de']];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => false,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard . '';
+    
+    return $reply_markup;
+    }
+
 function inlineKeybord(){ ///Выводяться только с пыстым сообщением
 $reply_markup = '';
 $x1 = array("text"=>"en","callback_data"=>"en");
