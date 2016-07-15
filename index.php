@@ -48,7 +48,7 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-        echo "i равно 2";
+        header("Location:http://www.vk.com");
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
