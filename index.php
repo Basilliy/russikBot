@@ -41,7 +41,7 @@ switch ($message) {
         echo "i равно 2";
         break;
     default:
-        checkLanguage($fp, $chat_id);
+        //checkLanguage($fp, $chat_id);
 }
 
 switch ($language) {
