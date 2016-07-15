@@ -29,12 +29,7 @@ switch ($message) {
     case 'Homepage':
         echo "i равно 2";
         break;
-    default:
-        checkLanguage($fp, $chat_id);
-}
-
-switch ($message) {
-    case 'en':
+         case 'en':
          if (checkUser($fp, $chat_id) != false) {
             foreach ( $fp as $key=> $value) {
               if($key==$chat_id){
@@ -64,8 +59,9 @@ switch ($message) {
           AddUser($chat_id,$fp,$message);
         }
          break;
+    default:
+        checkLanguage($fp, $chat_id);
 }
-
 
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
