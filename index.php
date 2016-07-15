@@ -58,7 +58,7 @@ function chekUser($mass,$user_id){
        }
     }
 return $is;
-}
+} 
 function AddUser($user_id,$mass,$message){
     $mass[$user_id] = $message;
 
