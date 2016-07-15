@@ -8,7 +8,7 @@ $url = 'https://api.telegram.org/bot' . $access_token;
 $output = json_decode(file_get_contents('php://input'), true);
 
 $chat_id = $output['message']['chat']['id'];
-//$message = $output['message']['text'];
+$message = $output['message']['text'];
 $language = $output['callback_query']['data'];
 
 if($language =='en')
