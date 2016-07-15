@@ -43,7 +43,7 @@ switch ($message) {
              }
              $arr3 = json_encode($fp);
              file_put_contents('user.json', $arr3);
-             //english($chat_id);
+             english($chat_id);
           }
           else{
             AddUser($chat_id,$fp,$message);
@@ -58,7 +58,7 @@ switch ($message) {
         }
          $arr3 = json_encode($fp);
          file_put_contents('user.json', $arr3);
-         //deutch($chat_id);
+         deutch($chat_id);
         }
         else{
           AddUser($chat_id,$fp,$message);
