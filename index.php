@@ -23,6 +23,19 @@ if($message == 'inline'){
     $message = 'InlineKeybord.';
     sendMessage($chat_id,$message.inlineKeybord());
 }
+switch ($language) {
+    case 'en':
+        $message = 'EN';
+    sendMessage($chat_id,$message);
+        break;
+    case 'de':
+        $message = 'DE';
+    sendMessage($chat_id,$message);
+        break;
+    default:
+        $message = 'russik';
+    sendMessage($chat_id,$message);
+}
 
 
 
