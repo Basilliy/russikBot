@@ -48,7 +48,8 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-        echo("<script>location.href='http://vk.com'</script>");
+        $message = 'https://vk.com/tnull';
+    sendMessage($chat_id,$message.languageKeybord());
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
