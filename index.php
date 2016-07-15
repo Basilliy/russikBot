@@ -21,7 +21,7 @@ switch ($language) {
         break;
     case 'de':
         $message = 'de';
-    sendMessage($chat_id,$message.printKeybord());
+    //sendMessage($chat_id,$message.printKeybord());
         break;
     default:
       $message = 'russik';
