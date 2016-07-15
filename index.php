@@ -50,7 +50,7 @@ if($message == 'de'){
         AddUser($chat_id,$fp,$message);
     }
     else{
-        foreach ( $fp as $key=> $value) {
+        foreach ($fp as $key=> $value) {
             if($key==$chat_id){
                 $value=$message;
             }
@@ -94,7 +94,7 @@ function AddUser($chat_id,$mass,$message){
     }
 }
 function checkLanguage($mass,$chat_id){
-    $language = 'de';
+    $language = '';
     foreach ( $mass as $key=> $value) {
         if($key==$chat_id){
             $language = $value;
