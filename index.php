@@ -7,26 +7,13 @@ $url = 'https://api.telegram.org/bot' . $access_token;
 
 $output = json_decode(file_get_contents('php://input'), true);
 $lang = json_decode(file_get_contents('php://input'), true);
-$language = $lang['callback_query']['id'];
+//$language = $lang['callback_query']['id'];
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 
 if($message == 'inline'){
     $message = 'InlineKeybord.';
     sendMessage($chat_id,$message.inlineKeybord());
-}
-switch ($language) {
-    case 'en':
-        $message = 'English';
-        sendMessage($chat_id,$message.printKeybord());
-        break;
-     case 'de':
-        $message = 'Deutsh';
-        sendMessage($chat_id,$message.printKeybord());
-        break;
-         default:   
-         $message = 'how it work??';
-        sendMessage($chat_id,$message);
 }
 
 
