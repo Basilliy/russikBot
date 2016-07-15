@@ -49,7 +49,8 @@ switch ($message) {
         break;
     case 'Homepage':
         $message = 'https://vk.com/tnull';
-    sendMessage($chat_id,$message.languageKeybord());
+         $reply_markup = '&reply_markup= true ';
+    sendMessage($chat_id,$message. $reply_markup);
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
