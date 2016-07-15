@@ -11,6 +11,26 @@ $language = $lang['callback_query']['data'];
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 
+if($message == 'inline'){
+    $message = 'InlineKeybord.';
+    sendMessage($chat_id,$message.inlineKeybord());
+}
+
+switch ($language) {
+    case 'en':
+        $message = 'English';
+        sendMessage($chat_id,$message.printKeybord());
+        break;
+     case 'de':
+        $message = 'Deutsh';
+        sendMessage($chat_id,$message.printKeybord());
+        break;
+         default:   
+         $message = 'how it work??';
+        sendMessage($chat_id,$message);
+}
+
+
 
 $fp = json_decode(file_get_contents('user.json'), true);
 
