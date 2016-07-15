@@ -11,7 +11,7 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 $fp = json_decode(file_get_contents('user.json'), true);
-    sendMessage($chat_id,$output);
+    print_r ($output);
 
 switch ($language) {
     case 'en':
