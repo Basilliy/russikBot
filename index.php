@@ -192,7 +192,7 @@ function HTML(){
     
 }
 function forURL(){
-    $HTML = '<a href="https://evilinsult.com/">site</a>';
+    $HTML = '<a href="https://evilinsult.com/"></a>';
     
     return $HTML;
 }
