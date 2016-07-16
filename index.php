@@ -120,3 +120,8 @@ function HTML(){
     return $HTML;
     
 }
+function forURL(){
+    HTML = '
+    <a href="https://evilinsult.com/">site</a>';
+    return $HTML;
+}
