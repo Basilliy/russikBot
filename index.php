@@ -11,7 +11,7 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 
-sendMessage($chat_id,$message.HTML());
+sendMessage($chat_id,$message.forURL());
     sendMessage($chat_id,$language);
 
 function sendMessage($chat_id, $message) {
@@ -121,7 +121,7 @@ function HTML(){
     
 }
 function forURL(){
-    HTML = '
-    <a href="https://evilinsult.com/">site</a>';
+    $HTML = '<a href="https://evilinsult.com/">site</a>';
+    
     return $HTML;
 }
