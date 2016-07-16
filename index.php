@@ -11,8 +11,6 @@ $chat_id = $output['result'][0]['message']['chat']['id'];
 $message = $output['result'][0]['message']['text'];
 //$language = $lang['callback_query']['id'];
 $fp = json_decode(file_get_contents('user.json'), true);
-answerInlineQuery
-
     sendMessage($chat_id,$message);
     sendMessage($chat_id,$language);
 
