@@ -11,6 +11,9 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 
+sendMessage($chat_id,$message);
+    sendMessage($chat_id,$language);
+
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
