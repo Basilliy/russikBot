@@ -7,8 +7,8 @@ $url = 'https://api.telegram.org/bot' . $access_token;
 $output = json_decode(file_get_contents('php://input'), true);
 $lang = json_decode(file_get_contents('php://input'), true);
 //$language = $lang['result'][0]['callback_query']['data'];
-$chat_id = $output['result'][0]['message']['chat']['id'];
-$message = $output['result'][0]['message']['text'];
+$chat_id = $output['message']['chat']['id'];
+$message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 $fp = json_decode(file_get_contents('user.json'), true);
     sendMessage($chat_id,$message);
@@ -39,7 +39,7 @@ switch ($message) {
         break;
     case 'Language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.HTML());
+    sendMessage($chat_id,$message);
         break;
      case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
@@ -186,12 +186,4 @@ fclose($fp); //Закрытие файла
 $file_array = file("file.txt"); // Открываем файл в режиме чтения
 return $file_array[28];
 }
-function HTML(){
-    $HTML = '<b>bold</b>, <strong>bold</strong>
-    <i>italic</i>, <em>italic</em>
-    <a href="URL">inline URL</a>
-    <code>inline fixed-width code</code>
-    <pre>pre-formatted fixed-width code block</pre>';
-    return $HTML;
-    
-}
+
