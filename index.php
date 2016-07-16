@@ -11,7 +11,7 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 
-sendMessage($chat_id,$message);
+sendMessage($chat_id,$message.HTML());
     sendMessage($chat_id,$language);
 
 function sendMessage($chat_id, $message) {
@@ -111,3 +111,12 @@ $file_array = file("file.txt"); // Открываем файл в режиме �
 return $file_array[28];
 }
 
+function HTML(){
+    $HTML = '<b>bold</b>, <strong>bold</strong>
+    <i>italic</i>, <em>italic</em>
+    <a href="URL">inline URL</a>
+    <code>inline fixed-width code</code>
+    <pre>pre-formatted fixed-width code block</pre>';
+    return $HTML;
+    
+}
