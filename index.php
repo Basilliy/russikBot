@@ -42,7 +42,7 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-          sendMessage($chat_id,forURL());
+          sendMessage($chat_id,languageKeybord());
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
