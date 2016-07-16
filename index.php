@@ -114,7 +114,7 @@ return $file_array[28];
 function HTML(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
     <i>italic</i>, <em>italic</em>
-    <a href="URL">inline URL</a>
+    <a href="https://habrahabr.ru/post/221949/">site</a>
     <code>inline fixed-width code</code>
     <pre>pre-formatted fixed-width code block</pre>';
     return $HTML;
