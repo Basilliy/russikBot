@@ -11,9 +11,6 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 
-sendMessage($chat_id,$message.forURL());
-    sendMessage($chat_id,$language);
-
 switch ($language) {
     case 'en':
         $message = 'en';
