@@ -124,7 +124,7 @@ function checkLanguage($mass,$chat_id){
     }
 }
 function printKeybord(){
-        $reply_markup = '';
+        $reply_markup = 'de';
 //    $buttons = [[['text' => 'tekst',
 //        'request_contact' => true ,
 //        'request_location' => false ]]];
