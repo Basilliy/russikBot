@@ -14,6 +14,80 @@ $message = $output['message']['text'];
 sendMessage($chat_id,$message.forURL());
     sendMessage($chat_id,$language);
 
+switch ($language) {
+    case 'en':
+        $message = 'en';
+    sendMessage($chat_id,$message.printKeybord());
+        break;
+    case 'de':
+        $message = 'de';
+    sendMessage($chat_id,$message.printKeybord());
+        break;
+    default:
+      //$message = 'russik';
+    //sendMessage($chat_id,$message);
+}
+if($message == 'inline'){
+    $message = 'InlineKeybord.';
+    sendMessage($chat_id,$message.inlineKeybord());
+}
+$fp = json_decode(file_get_contents('user.json'), true);
+switch ($message) {
+    case '/start':
+        $message = 'Hello, i am Marvin bot.';
+    sendMessage($chat_id,$message.printKeybord());
+        break;
+    case 'Language':
+         $message = 'Choose language.';
+    sendMessage($chat_id,$message.HTML());
+        break;
+     case 'Genegate Insult':
+        checkLanguage($fp,$chat_id);
+        break;
+    case 'Homepage':
+          sendMessage($chat_id,forURL());
+        break;
+         case 'en':
+         if (checkUser($fp, $chat_id) != false) {
+            foreach ( $fp as $key=> $value) {
+              if($key==$chat_id){
+                 $fp[$key] = $message;
+              }
+             }
+             $arr3 = json_encode($fp);
+             file_put_contents('user.json', $arr3);
+             english($chat_id);
+          }
+          else{
+            AddUser($chat_id,$fp,$message);
+          }
+        break;
+    case 'de':
+        if (checkUser($fp, $chat_id) != false) {
+          foreach ( $fp as $key=> $value) {
+           if($key==$chat_id){
+                $fp[$key] = $message;
+            }
+        }
+         $arr3 = json_encode($fp);
+         file_put_contents('user.json', $arr3);
+         deutch($chat_id);
+        }
+        else{
+          AddUser($chat_id,$fp,$message);
+        }
+         break;
+    default:
+        checkLanguage($fp, $chat_id);
+}
+function deutch($chat_id){
+    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
+    sendMessage($chat_id, $fuck);
+}
+function english($chat_id){
+    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+    sendMessage($chat_id, $fuck);
+}
 function sendMessage($chat_id, $message) {
     // http://web-performers.com/bot/chatbot/conversation_start.php?say=2
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
