@@ -47,8 +47,8 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-        $message = 'https://vk.com/tnull';
-         $reply_markup = 'https://vk.com/tnull&reply_markup= true ';
+        $message = 'https://evilinsult.com/';
+          sendMessage($chat_id,$message);
     sendMessage($chat_id,$reply_markup);
         break;
          case 'en':
