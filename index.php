@@ -41,7 +41,7 @@ switch ($message) {
         break;
     case 'Language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.languageKeybord());
+    sendMessage($chat_id,$message.HTML());
         break;
      case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
@@ -187,4 +187,13 @@ $test = fwrite($fp, $output ); // Запись в файл
 fclose($fp); //Закрытие файла
 $file_array = file("file.txt"); // Открываем файл в режиме чтения
 return $file_array[28];
+}
+function HTML(){
+    $HTML = '<b>bold</b>, <strong>bold</strong>
+    <i>italic</i>, <em>italic</em>
+    <a href="URL">inline URL</a>
+    <code>inline fixed-width code</code>
+    <pre>pre-formatted fixed-width code block</pre>';
+    return $HTML;
+    
 }
