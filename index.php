@@ -36,13 +36,13 @@ switch ($message) {
         break;
     case 'Language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.HTML());
+    sendMessage($chat_id,$message.languageKeybord());
         break;
      case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-          sendMessage($chat_id,languageKeybord());
+          sendMessage($chat_id,forURL());
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
