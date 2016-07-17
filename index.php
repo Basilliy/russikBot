@@ -26,7 +26,7 @@ switch ($language) {
 }
 if($message == 'inline'){
     $message = 'InlineKeybord.';
-    sendMessage($chat_id,$message.inlineKeybord());
+    sendMessage($chat_id,inlineKeybord($chat_id));
 }
 $fp = json_decode(file_get_contents('user.json'), true);
 switch ($message) {
@@ -161,7 +161,7 @@ function languageKeybord(){
     
     return $reply_markup;
     }
-function inlineKeybord(){ ///Выводяться только с сообщением
+function inlineKeybord($chat_id){ ///Выводяться только с сообщением
 $reply_markup = '';
 $x1 = array('text'=>'en','url' => 'https://vk.com/id37690037');
 $x2 = array('text'=>'de','callback_data'=>"de");
@@ -169,9 +169,17 @@ $x3 = array('text'=>'ru','callback_data'=>"ru");
 $x4 = array('text'=>'fr','callback_data'=>"fr");
 $opz = [[$x1,$x2,$x3,$x4]];
 $keyboard=array("inline_keyboard"=>$opz);
-$keyboard = json_encode($keyboard);
+$keyboard = json_encode($keyboard,true);
      $reply_markup = '&reply_markup=' . $keyboard . '';
-    return $reply_markup;
+     
+$content = [
+                    'chat_id' => $chat_id,
+                    'reply_markup' => $keyboard,
+                    'text' => 'Here is your places list. Choose one to get map with it.',
+                    'disable_notification' => true
+                ];
+     
+    return $content;
 }
 function doIt($output){
 $fp = fopen("file.txt", "a"); // Открываем файл в режиме записи 
