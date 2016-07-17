@@ -26,7 +26,7 @@ switch ($language) {
 }
 if($message == 'inline'){
     $message = 'InlineKeybord.';
-    sendMessage($chat_id,inlineKeybord($chat_id));
+    sendMessage($chat_id,$message.inlineKeybord($chat_id));
 }
 $fp = json_decode(file_get_contents('user.json'), true);
 switch ($message) {
