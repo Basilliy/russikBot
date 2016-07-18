@@ -12,7 +12,7 @@
     sendMessage($chat_id,$message);
 
 function sendMessage($chat_id, $message) {
-   file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message.inlineKeybord()."&parse_mode=HTML");
+   file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message);
 }///Выводяться только с сообщением
 
 ?>
