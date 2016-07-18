@@ -1,5 +1,5 @@
 <?php
-   $access_token = '232279995:AAFMV0TUvJo9VAFvN-O9SRwDYozGRr9RjBM';
+   $access_token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
    $url = 'https://api.telegram.org/bot' . $access_token;   
    $output = json_decode(file_get_contents('php://input'), true);
    //$lang = json_decode(file_get_contents('php://input'), true);
