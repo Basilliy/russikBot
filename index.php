@@ -170,7 +170,7 @@ function languageKeybord(){
     }
 function inlineKeybord($chat_id){ ///Выводяться только с сообщением
 $reply_markup = '';
-$x1 = array('text'=>'en','url' => 'https://vk.com/id37690037');
+$x1 = array('text'=>'en','callback_data'=>"en");
 $x2 = array('text'=>'de','callback_data'=>"de");
 $x3 = array('text'=>'ru','callback_data'=>"ru");
 $x4 = array('text'=>'fr','callback_data'=>"fr");
