@@ -38,14 +38,6 @@ switch ($message) {
     sendMessage($chat_id,$message.languageKeybord());
         break;
      case 'Genegate Insult':
-         if($language=='en')
-         {
-             english($chat_id);
-         }
-         if($language=='de')
-         {
-             deutch($chat_id);
-         }
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
