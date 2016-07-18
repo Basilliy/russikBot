@@ -9,27 +9,8 @@
    //$fp = json_decode(file_get_contents('user.json'), true);   
    //print_r('out=',serialize($output));
    //$fp = json_decode(file_get_contents('user.json'), true);
-   switch ($message) {
-   case '/start':
-   $text = 'russik';
-      // file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text="$text.inlineKeybord()");
-       sendMessage($chat_id,$text.inlineKeybord());
-       break;
-   case 'Language':
-        $message = 'Choose language.';
-       sendMessage($chat_id,$message);
-       break;
-   case 'en':
-       $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-       sendMessage($chat_id, $fuck);
-       break;
-   case 'de':
-       $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-       sendMessage($chat_id, $fuck);
-       break;
-   default:
-       sendMessage($chat_id, $fuck);
-}
+    sendMessage($chat_id,$message);
+
 function sendMessage($chat_id, $message) {
    file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message.inlineKeybord()."&parse_mode=HTML");
 }///Выводяться только с сообщением
