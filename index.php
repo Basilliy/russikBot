@@ -9,8 +9,8 @@
    $fp = json_decode(file_get_contents('user.json'), true);  
    print_r('out=',serialize($output));
    $fp = json_decode(file_get_contents('user.json'), true);
-   sendMessage($url,$chat_id,$text.inlineKeybord());
-function sendMessage($url,$chat_id, $message) {
+   sendMessage($chat_id,$text.inlineKeybord());
+function sendMessage($chat_id, $message) {
   file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
 }///Выводяться только с сообщением
 function inlineKeybord(){
