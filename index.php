@@ -11,7 +11,7 @@
    $fp = json_decode(file_get_contents('user.json'), true);
    sendMessage($chat_id,$text.inlineKeybord());
 function sendMessage($chat_id, $message) {
-  file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
+  file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");
 }///Выводяться только с сообщением
 function inlineKeybord(){
 $reply_markup = '';
