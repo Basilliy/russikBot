@@ -42,6 +42,10 @@ switch ($message) {
          {
              english($chat_id);
          }
+         if($language=='de')
+         {
+             deutch($chat_id);
+         }
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
