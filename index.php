@@ -4,15 +4,15 @@
    $output = json_decode(file_get_contents('php://input'), true);
    //$lang = json_decode(file_get_contents('php://input'), true);
    $chat_id = $output['message']['chat']['id'];
-   $first_name = $output['message']['chat']['first_name'];
-   $message = $output['message']['text'];  
+   //$first_name = $output['message']['chat']['first_name'];
+   //$message = $output['message']['text'];  
    //$fp = json_decode(file_get_contents('user.json'), true);   
    //print_r('out=',serialize($output));
    //$fp = json_decode(file_get_contents('user.json'), true);
     sendMessage($chat_id,$message);
 
 function sendMessage($chat_id, $message) {
-   file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message);
+   file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=sadfsacsad");
 }///Выводяться только с сообщением
 
 ?>
