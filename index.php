@@ -14,15 +14,5 @@
 function sendMessage($chat_id, $message) {
    file_get_contents($url."/sendMessage?chat_id=".$chat_id."&text=".$message.inlineKeybord()."&parse_mode=HTML");
 }///Выводяться только с сообщением
-function inlineKeybord(){
-$reply_markup = '';
-$x1 = array('text'=>'en','callback_data'=>"en");
-$x2 = array('text'=>'de','callback_data'=>"de");
-$opz = [[$x1,$x2]];
-$keyboard=array("inline_keyboard"=>$opz);
-$keyboard = json_encode($keyboard,true);
-$reply_markup = '&reply_markup=' . $keyboard;   
-return $reply_markup;
-}
 
 ?>
