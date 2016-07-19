@@ -148,7 +148,7 @@ function languageKeybord(){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $buttons = [['Generate Insult'],['en','de']];
+    $buttons = [['Generate Insult'],['en','de'/*<---сюда*/]]; //создать текстовое описание, корое будет передаваться на сервер
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -168,6 +168,8 @@ $x3 = array('text'=>'ru','callback_data'=>"ru");
 $x4 = array('text'=>'fr','callback_data'=>"fr");
 $x5 = array('text'=>'es','callback_data'=>"es");
 $x6 = array('text'=>'pt','callback_data'=>"pt");
+// Создать нову переменную $xn(следующий номер), установить её опиание в поле text и добавить к ней callback_data, который будет 
+// возвращаться на сервер
 $opz = [[$x1,$x2,$x3,$x4],[$x5,$x6]];
 $keyboard=array("inline_keyboard"=>$opz);
 $keyboard = json_encode($keyboard,true);
@@ -192,7 +194,7 @@ function HTML(){
     
 }
 function forURL(){
-    $HTML = '<a href="https://evilinsult.com/">site</a>';
+    $HTML = '<a href="https://evilinsult.com/">Evil Insult Generator Homepage</a>';
     
     return $HTML;
 }
