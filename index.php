@@ -42,7 +42,7 @@ switch ($message) {
         break;
     case 'Homepage':
         $message=' ';
-          sendMessage($chat_id,forURL());
+          sendMessage($chat_id,HTML());
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
