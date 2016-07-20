@@ -42,7 +42,7 @@ switch ($message) {
         break;
     case 'Homepage':
         $message=' ';
-          sendMessage($chat_id,HTML());
+          sendMessage($chat_id,forURL());
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
@@ -187,12 +187,14 @@ return $file_array[28];
 }
 function HTML(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
-    <i>italic</i>, <em>italic</em>,
-    <a href="https://evilinsult.com/">Evil Insult Generator Homepage</a>';
+    <i>italic</i>, <em>italic</em>
+    <a href="https://habrahabr.ru/post/221949/">site</a>
+    <code>inline fixed-width code</code>
+    <pre>pre-formatted fixed-width code block</pre>';
     return $HTML;
     
 }
 function forURL(){
-    $HTML = '<a href="https://evilinsult.com/">Evil Insult Generator Homepage</a>';
+    $HTML = '<a href="https://habrahabr.ru/post/221949/">Evil Insult Generator Homepage</a>';
     return $HTML;
 }
