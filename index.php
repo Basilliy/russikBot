@@ -195,8 +195,8 @@ function HTML(){
     
 }
 function forURL(){
-    $HTML = '<b>bold</b>, <strong>bold</strong>
-<i>italic</i>, <em>italic</em>
-<a href="https://evilinsult.com/">inline URL</a>';
+    $HTML = '<b></b>, <strong></strong>
+<i></i>, <em></em>
+<a href="https://evilinsult.com/">"Evil Insult Generator Homepage</a>';
     return $HTML;
 }
