@@ -188,7 +188,7 @@ return $file_array[28];
 function HTML(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
 <i>italic</i>, <em>italic</em>
-<a href="URL">inline URL</a>
+<a href="https://evilinsult.com/">inline URL</a>
 <code>inline fixed-width code</code>
 <pre>pre-formatted fixed-width code block</pre>';
     return $HTML;
@@ -197,7 +197,7 @@ function HTML(){
 function forURL(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
 <i>italic</i>, <em>italic</em>
-<a href="URL">inline URL</a>
+<a href="https://evilinsult.com/">inline URL</a>
 <code>inline fixed-width code</code>
 <pre>pre-formatted fixed-width code block</pre>';
     return $HTML;
