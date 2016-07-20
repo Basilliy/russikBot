@@ -41,7 +41,7 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-        $message=' ';
+        $message='';
           sendMessage($chat_id,forURL());
         break;
          case 'en':
@@ -195,7 +195,6 @@ function HTML(){
     
 }
 function forURL(){
-    $HTML = '
-<a href="https://evilinsult.com/">evilinsult.com/</a>';
+    $HTML='<a href="https://evilinsult.com/">https://evilinsult.com/</a>';
     return $HTML;
 }
