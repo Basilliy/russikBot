@@ -187,7 +187,7 @@ return $file_array[28];
 }
 function HTML(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
-    <i>italic</i>, <em>italic</em>
+    <i>italic</i>, <em>italic</em>,
     <a href="https://evilinsult.com/">Evil Insult Generator Homepage</a>';
     return $HTML;
     
