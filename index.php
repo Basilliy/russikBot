@@ -41,7 +41,8 @@ switch ($message) {
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
-          sendMessage($chat_id,"forURL()");
+        $message=' ';
+          sendMessage($chat_id,$message.forURL());
         break;
          case 'en':
          if (checkUser($fp, $chat_id) != false) {
