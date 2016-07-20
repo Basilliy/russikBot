@@ -187,14 +187,18 @@ return $file_array[28];
 }
 function HTML(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
-    <i>italic</i>, <em>italic</em>
-    <a href="https://habrahabr.ru/post/221949/">site</a>
-    <code>inline fixed-width code</code>
-    <pre>pre-formatted fixed-width code block</pre>';
+<i>italic</i>, <em>italic</em>
+<a href="URL">inline URL</a>
+<code>inline fixed-width code</code>
+<pre>pre-formatted fixed-width code block</pre>';
     return $HTML;
     
 }
 function forURL(){
-    $HTML = '<a href="https://habrahabr.ru/post/221949/">Evil Insult Generator Homepage</a>';
+    $HTML = '<b>bold</b>, <strong>bold</strong>
+<i>italic</i>, <em>italic</em>
+<a href="URL">inline URL</a>
+<code>inline fixed-width code</code>
+<pre>pre-formatted fixed-width code block</pre>';
     return $HTML;
 }
