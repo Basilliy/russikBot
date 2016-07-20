@@ -195,8 +195,7 @@ function HTML(){
     
 }
 function forURL(){
-    $HTML = '<b></b>, <strong></strong>
-<i></i>, <em></em>
+    $HTML = '
 <a href="https://evilinsult.com/">inline URL</a>';
     return $HTML;
 }
