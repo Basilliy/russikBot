@@ -195,6 +195,5 @@ function HTML(){
 }
 function forURL(){
     $HTML = '<a href="https://evilinsult.com/">Evil Insult Generator Homepage</a>';
-    
     return $HTML;
 }
