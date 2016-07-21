@@ -74,7 +74,7 @@ switch ($message) {
           AddUser($chat_id,$fp,$message);
         }
          break;
-       case 'secret Keybord':
+       case 'secret Keyboard':
              $message = 'You found my secret';
         sendMessage($chat_id, $message.secretKeyboard());
          break;
