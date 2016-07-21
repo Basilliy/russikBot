@@ -74,12 +74,14 @@ switch ($message) {
           AddUser($chat_id,$fp,$message);
         }
          break;
-       case 'secret':
+       case 'secret Keybord':
              $message = 'You found my secret';
         sendMessage($chat_id, $message.secretKeyboard());
          break;
          case 'Generate Secret':
-        FuckYou($chat_id);
+                FuckYou($chat_id);
+                $message = 'Are you sure?';
+        sendMessage($chat_id, $message.secretKeyboard());
          break;
          case 'Go Back':
              $message = "Welcome back";
@@ -87,6 +89,29 @@ switch ($message) {
          break; 
     default:
         checkLanguage($fp, $chat_id);
+}
+
+function FuckYou($chat_id){
+    $number = rand(1, 4);
+    switch($number){
+            case'1':
+                $photo = "AgADAgADs6cxGy1h7g_4CyeuCcFzkJMjcQ0ABBH8Y3MeW8w5aUsAAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+            case'2':
+                $photo = "AgADAgADsqcxGy1h7g8dBdAETGyaUaMrcQ0ABKgghyjXUQayzkoAAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+            case'3':
+                $photo = "AgADAgADsacxGy1h7g9KAiIu5zjfv8g1cQ0ABGrlstN4Rt0s-0wAAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+            case'4':
+                $photo = "AgADAgADsKcxGy1h7g_J-P6O8n0Gv7ogcQ0ABPODhNMNWhfrF04AAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+    }
+    
 }
 
 function secretKeyboard(){
@@ -231,28 +256,7 @@ function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
 }
-function FuckYou($chat_id){
-    $number = rand(1, 4);
-    switch($number){
-            case'1':
-                $photo = "AgADAgADs6cxGy1h7g_4CyeuCcFzkJMjcQ0ABBH8Y3MeW8w5aUsAAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-            case'2':
-                $photo = "AgADAgADsqcxGy1h7g8dBdAETGyaUaMrcQ0ABKgghyjXUQayzkoAAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-            case'3':
-                $photo = "AgADAgADsacxGy1h7g9KAiIu5zjfv8g1cQ0ABGrlstN4Rt0s-0wAAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-            case'4':
-                $photo = "AgADAgADsKcxGy1h7g_J-P6O8n0Gv7ogcQ0ABPODhNMNWhfrF04AAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-    }
-    
-}
+
 function sendPhoto($chat_id, $photo){
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&photo=".$photo);
 
