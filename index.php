@@ -11,7 +11,7 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
 $fp = json_decode(file_get_contents('user.json'), true);
-if($output['callback_query']['data'] == "en"){
+if(isset($output['callback_query']['data'])){
 
 if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false) {
             foreach ( $fp as $key=> $value) {
@@ -21,13 +21,12 @@ if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false)
              }
              $arr3 = json_encode($fp);
              file_put_contents('user.json', $arr3);
-             english($output['callback_query']['message']['chat']['id']);
           }
           else{
             AddUser($output['callback_query']['message']['chat']['id'],$fp,$output['callback_query']['data']);
           }
 
-file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=привет я выбрал ен ".($output['callback_query']['data'])."&parse_mode=HTML");
+//file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=привет я выбрал ен ".($output['callback_query']['data'])."&parse_mode=HTML");
 
 }
 
