@@ -30,25 +30,6 @@ file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzy
 exit();
             
 }
-
-switch ($language) {
-    case 'en':
-        $message = 'en';
-    sendMessage($chat_id,$message.printKeybord());
-        break;
-    case 'de':
-        $message = 'de';
-    sendMessage($chat_id,$message.printKeybord());
-        break;
-    default:
-      //$message = 'russik';
-    //sendMessage($chat_id,$message);
-}
-if($message == 'inline'){
-    $message = 'InlineKeybord.';
-    sendMessage($chat_id,$message.inlineKeybord());
-}
-
 switch ($message) {
     case '/start':
         $message = 'Hello, i am Marvin bot.';
@@ -65,36 +46,6 @@ switch ($message) {
         $message='';
           sendMessage($chat_id,forURL());
         break;
-         case 'en':
-         if (checkUser($fp, $chat_id) != false) {
-            foreach ( $fp as $key=> $value) {
-              if($key==$chat_id){
-                 $fp[$key] = $message;
-              }
-             }
-             $arr3 = json_encode($fp);
-             file_put_contents('user.json', $arr3);
-             english($chat_id);
-          }
-          else{
-            AddUser($chat_id,$fp,$message);
-          }
-        break;
-    case 'de':
-        if (checkUser($fp, $chat_id) != false) {
-          foreach ( $fp as $key=> $value) {
-           if($key==$chat_id){
-                $fp[$key] = $message;
-            }
-        }
-         $arr3 = json_encode($fp);
-         file_put_contents('user.json', $arr3);
-         deutch($chat_id);
-        }
-        else{
-          AddUser($chat_id,$fp,$message);
-        }
-         break;
        case 'secret Keyboard':
              $message = 'You found my secret';
         sendMessage($chat_id, $message.secretKeyboard());
@@ -107,7 +58,7 @@ switch ($message) {
         sendMessage($chat_id,$message.printKeybord());
          break; 
     default:
-       // checkLanguage($fp, $chat_id);
+       checkLanguage($fp, $chat_id);
 }
 
 function FuckYou($chat_id){
@@ -182,7 +133,7 @@ function secretKeyboard(){
 }
 
 function checkLanguage($mass,$chat_id){
-    $language = 'en';
+    $language = '';
     foreach ( $mass as $key=> $value) {
         if($key==$chat_id){
             $language = $value;
