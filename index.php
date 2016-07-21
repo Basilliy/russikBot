@@ -13,23 +13,41 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 if($output['callback_query']['data'] == "en"){
 
-if (checkUser($fp, $output['callback_query']['from']['id']) != false) {
+if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false) {
             foreach ( $fp as $key=> $value) {
-              if($key==$output['callback_query']['from']['id']){
+              if($key==$output['callback_query']['message']['chat']['id']){
                  $fp[$key] = $output['callback_query']['data'];
               }
              }
              $arr3 = json_encode($fp);
              file_put_contents('user.json', $arr3);
-             english($output['callback_query']['from']['id']);
+             english($output['callback_query']['message']['chat']['id']);
           }
           else{
-            AddUser($output['callback_query']['from']['id'],$fp,$output['callback_query']['data']);
+            AddUser($output['callback_query']['message']['chat']['id'],$fp,$output['callback_query']['data']);
           }
+
 file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=привет я выбрал ен ".($output['callback_query']['data'])."&parse_mode=HTML");
 
 }
 
+switch ($language) {
+    case 'en':
+        $message = 'en';
+    sendMessage($chat_id,$message.printKeybord());
+        break;
+    case 'de':
+        $message = 'de';
+    sendMessage($chat_id,$message.printKeybord());
+        break;
+    default:
+      //$message = 'russik';
+    //sendMessage($chat_id,$message);
+}
+if($message == 'inline'){
+    $message = 'InlineKeybord.';
+    sendMessage($chat_id,$message.inlineKeybord($chat_id));
+}
 
 switch ($message) {
     case '/start':
