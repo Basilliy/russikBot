@@ -80,8 +80,6 @@ switch ($message) {
          break;
          case 'Generate Secret':
                 FuckYou($chat_id);
-                $message = 'Are you sure?';
-        sendMessage($chat_id, $message.secretKeyboard());
          break;
          case 'Go Back':
              $message = "Welcome back";
@@ -114,20 +112,6 @@ function FuckYou($chat_id){
     
 }
 
-function secretKeyboard(){
-        $reply_markup = '';
-    $buttons = [['Go Back'],['Generate Secret']];
-    $keyboard = json_encode($keyboard = [
-        'keyboard' => $buttons /*[$buttons]*/,
-        'resize_keyboard' => true,
-        'one_time_keyboard' => false,
-        'parse_mode' => 'HTML',
-        'selective' => true
-    ]);
-    $reply_markup = '&reply_markup=' . $keyboard;
-    
-    return $reply_markup;
-}
 
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
@@ -161,6 +145,21 @@ function AddUser($chat_id,$mass,$message){
         deutch($chat_id);
     }
 }
+function secretKeyboard(){
+        $reply_markup = '';
+    $buttons = [['Go Back'],['Generate Secret']];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => false,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard;
+    
+    return $reply_markup;
+}
+
 function checkLanguage($mass,$chat_id){
     $language = 'en';
     foreach ( $mass as $key=> $value) {
@@ -235,6 +234,10 @@ $keyboard = json_encode($keyboard,true);
      $reply_markup = '&reply_markup=' . $keyboard;
     return $reply_markup;
 }
+function sendPhoto($chat_id, $photo){
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
+
+}
 function doIt($output){
 $fp = fopen("file.txt", "a"); // Открываем файл в режиме записи 
 $mytext = "Это строку необходимо нам записать\r\n"; // Исходная строка
@@ -257,7 +260,4 @@ function forURL(){
     return $HTML;
 }
 
-function sendPhoto($chat_id, $photo){
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
 
-}
