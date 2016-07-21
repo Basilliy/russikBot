@@ -75,14 +75,14 @@ switch ($message) {
         }
          break;
        case 'secret':
-             $message = 'Choose language.';
+             $message = 'You found my secret';
         sendMessage($chat_id, $message.secretKeyboard());
          break;
          case 'Generate Secret':
         FuckYou($chat_id);
          break;
          case 'Go Back':
-             $message = "welcome back";
+             $message = "Welcome back";
         sendMessage($chat_id,$message.printKeybord());
          break; 
     default:
