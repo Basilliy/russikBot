@@ -94,23 +94,19 @@ switch ($message) {
 function FuckYou($chat_id){
     $number = rand(1, 4);
     switch($number){
-            case 1 :
-                sendMessage($chat_id, $number);
+            case 1:
                 $photo = "AgADAgADs6cxGy1h7g_4CyeuCcFzkJMjcQ0ABBH8Y3MeW8w5aUsAAgI";
             sendPhoto($chat_id, $photo);
             break;
-            case 2 :
-                sendMessage($chat_id, $number);
+            case 2:
                 $photo = "AgADAgADsqcxGy1h7g8dBdAETGyaUaMrcQ0ABKgghyjXUQayzkoAAgI";
             sendPhoto($chat_id, $photo);
             break;
-            case 3 :
-                sendMessage($chat_id, $number);
+            case 3:
                 $photo = "AgADAgADsacxGy1h7g9KAiIu5zjfv8g1cQ0ABGrlstN4Rt0s-0wAAgI";
             sendPhoto($chat_id, $photo);
             break;
-            case 4 :
-                sendMessage($chat_id, $number);
+            case 4:
                 $photo = "AgADAgADsKcxGy1h7g_J-P6O8n0Gv7ogcQ0ABPODhNMNWhfrF04AAgI";
             sendPhoto($chat_id, $photo);
             break;
@@ -262,6 +258,6 @@ function forURL(){
 }
 
 function sendPhoto($chat_id, $photo){
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&photo=".$photo);
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
 
 }
