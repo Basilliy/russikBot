@@ -107,7 +107,7 @@ switch ($message) {
         sendMessage($chat_id,$message.printKeybord());
          break; 
     default:
-        checkLanguage($fp, $chat_id);
+       // checkLanguage($fp, $chat_id);
 }
 
 function FuckYou($chat_id){
