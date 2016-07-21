@@ -198,3 +198,6 @@ function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
 }
+function SendMusik($chat_id){
+    
+}
