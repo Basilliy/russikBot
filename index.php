@@ -74,9 +74,9 @@ switch ($message) {
           AddUser($chat_id,$fp,$message);
         }
          break;
-       case 'secret command':
+       case 'secret':
              $message = 'Choose language.';
-        sendMessage($chat_id,$message.secretKeyboard());
+        sendMessage($chat_id,"secretKeyboard()");
          break;
          case 'Generate Secret':
         FuckYou($chat_id);
