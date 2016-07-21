@@ -26,8 +26,9 @@ if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false)
             AddUser($output['callback_query']['message']['chat']['id'],$fp,$output['callback_query']['data']);
           }
 
-file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=$output['callback_query']['message']['chat']['id']&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");
-//exit();
+file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
+exit();
+            
 }
 
 switch ($language) {
