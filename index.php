@@ -75,7 +75,8 @@ switch ($message) {
         }
          break;
        case 'secret command':
-        sendMessage($chat_id,secretKeyboard());
+             $message = 'Choose language.';
+        sendMessage($chat_id,$message.secretKeyboard());
          break;
          case 'Generate Secret':
         FuckYou($chat_id);
@@ -86,6 +87,22 @@ switch ($message) {
     default:
         checkLanguage($fp, $chat_id);
 }
+
+function secretKeyboard(){
+        $reply_markup = '';
+    $buttons = ['Go Back','Generate Secret'];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => false,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard;
+    
+    return $reply_markup;
+}
+
 function deutch($chat_id){
     $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
     sendMessage($chat_id, $fuck);
@@ -155,25 +172,7 @@ function printKeybord(){
     return $reply_markup;
 }
 
-function secretKeyboard(){
-        $reply_markup = '';
-//    $buttons = [[['text' => 'tekst',
-//        'request_contact' => true ,
-//        'request_location' => false ]]];
-    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
-    //'request_contact' => true]]];
-    $buttons = ['Go Back','Generate Secret'];
-    $keyboard = json_encode($keyboard = [
-        'keyboard' => $buttons /*[$buttons]*/,
-        'resize_keyboard' => true,
-        'one_time_keyboard' => false,
-        'parse_mode' => 'HTML',
-        'selective' => true
-    ]);
-    $reply_markup = '&reply_markup=' . $keyboard . '';
-    
-    return $reply_markup;
-}
+
 
 function languageKeybord(){
             $reply_markup = '';
