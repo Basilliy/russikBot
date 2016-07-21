@@ -10,6 +10,13 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 //$language = $lang['callback_query']['id'];
+
+if($output['callback_query']['data'] == "en"){
+
+file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=привет я выбрал ен ".($output['callback_query']['data'])."&parse_mode=HTML");
+
+}
+
 switch ($language) {
     case 'en':
         $message = 'en';
