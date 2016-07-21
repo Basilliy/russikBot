@@ -45,7 +45,7 @@ switch ($language) {
 }
 if($message == 'inline'){
     $message = 'InlineKeybord.';
-    sendMessage($chat_id,$message.inlineKeybord($chat_id));
+    sendMessage($chat_id,$message.inlineKeybord());
 }
 
 switch ($message) {
@@ -55,7 +55,7 @@ switch ($message) {
         break;
     case 'Language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.languageKeybord());
+    sendMessage($chat_id,$message.inlineKeybord());
         break;
      case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
@@ -238,7 +238,7 @@ function languageKeybord(){
     
     return $reply_markup;
     }
-function inlineKeybord($chat_id){ ///Выводяться только с сообщением
+function inlineKeybord(){ ///Выводяться только с сообщением
 $reply_markup = '';
 $x1 = array('text'=>'en','callback_data'=>"en");
 $x2 = array('text'=>'de','callback_data'=>"de");
