@@ -74,6 +74,15 @@ switch ($message) {
           AddUser($chat_id,$fp,$message);
         }
          break;
+       case 'secret command':
+        sendMessage($chat_id,secretKeyboard());
+         break;
+         case 'Generate Secret':
+        FuckYou($chat_id);
+         break;
+         case 'Go Back':
+        sendMessage($chat_id,printKeybord());
+         break; 
     default:
         checkLanguage($fp, $chat_id);
 }
@@ -123,8 +132,11 @@ function checkLanguage($mass,$chat_id){
         deutch($chat_id);
     }
 }
+
+
+
 function printKeybord(){
-        $reply_markup = 'de';
+        $reply_markup = '';
 //    $buttons = [[['text' => 'tekst',
 //        'request_contact' => true ,
 //        'request_location' => false ]]];
@@ -142,6 +154,27 @@ function printKeybord(){
     
     return $reply_markup;
 }
+
+function secretKeyboard(){
+        $reply_markup = '';
+//    $buttons = [[['text' => 'tekst',
+//        'request_contact' => true ,
+//        'request_location' => false ]]];
+    // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
+    //'request_contact' => true]]];
+    $buttons = ['Go Back','Generate Secret'];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => false,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard . '';
+    
+    return $reply_markup;
+}
+
 function languageKeybord(){
             $reply_markup = '';
 //    $buttons = [[['text' => 'tekst',
@@ -198,6 +231,29 @@ function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
 }
-function SendMusik($chat_id){
+function FuckYou($chat_id){
+    $number = rand(1, 4);
+    switch($number){
+            case'1':
+                $photo = "AgADAgADs6cxGy1h7g_4CyeuCcFzkJMjcQ0ABBH8Y3MeW8w5aUsAAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+            case'2':
+                $photo = "AgADAgADsqcxGy1h7g8dBdAETGyaUaMrcQ0ABKgghyjXUQayzkoAAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+            case'3':
+                $photo = "AgADAgADsacxGy1h7g9KAiIu5zjfv8g1cQ0ABGrlstN4Rt0s-0wAAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+            case'4':
+                $photo = "AgADAgADsKcxGy1h7g_J-P6O8n0Gv7ogcQ0ABPODhNMNWhfrF04AAgI";
+            sendPhoto($chat_id, $photo);
+            break;
+    }
     
+}
+function sendPhoto($chat_id, $photo){
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&photo=".$photo);
+
 }
