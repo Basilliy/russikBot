@@ -82,7 +82,8 @@ switch ($message) {
         FuckYou($chat_id);
          break;
          case 'Go Back':
-        sendMessage($chat_id,printKeybord());
+             $message = "welcome back";
+        sendMessage($chat_id,$message.printKeybord());
          break; 
     default:
         checkLanguage($fp, $chat_id);
