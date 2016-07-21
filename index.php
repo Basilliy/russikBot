@@ -76,7 +76,7 @@ switch ($message) {
          break;
        case 'secret':
              $message = 'Choose language.';
-        sendMessage($chat_id,"secretKeyboard()");
+        sendMessage($chat_id, $message.secretKeyboard());
          break;
          case 'Generate Secret':
         FuckYou($chat_id);
@@ -90,7 +90,7 @@ switch ($message) {
 
 function secretKeyboard(){
         $reply_markup = '';
-    $buttons = ['Go Back','Generate Secret'];
+    $buttons = [['Go Back'],['Generate Secret']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
