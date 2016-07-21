@@ -94,19 +94,23 @@ switch ($message) {
 function FuckYou($chat_id){
     $number = rand(1, 4);
     switch($number){
-            case'1':
+            case 1 :
+                sendMessage($chat_id, $number);
                 $photo = "AgADAgADs6cxGy1h7g_4CyeuCcFzkJMjcQ0ABBH8Y3MeW8w5aUsAAgI";
             sendPhoto($chat_id, $photo);
             break;
-            case'2':
+            case 2 :
+                sendMessage($chat_id, $number);
                 $photo = "AgADAgADsqcxGy1h7g8dBdAETGyaUaMrcQ0ABKgghyjXUQayzkoAAgI";
             sendPhoto($chat_id, $photo);
             break;
-            case'3':
+            case 3 :
+                sendMessage($chat_id, $number);
                 $photo = "AgADAgADsacxGy1h7g9KAiIu5zjfv8g1cQ0ABGrlstN4Rt0s-0wAAgI";
             sendPhoto($chat_id, $photo);
             break;
-            case'4':
+            case 4 :
+                sendMessage($chat_id, $number);
                 $photo = "AgADAgADsKcxGy1h7g_J-P6O8n0Gv7ogcQ0ABPODhNMNWhfrF04AAgI";
             sendPhoto($chat_id, $photo);
             break;
