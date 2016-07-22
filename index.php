@@ -200,14 +200,6 @@ function sendPhoto($chat_id, $photo){
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
 
 }
-function doIt($output){
-$fp = fopen("file.txt", "a"); // Открываем файл в режиме записи 
-$mytext = "Это строку необходимо нам записать\r\n"; // Исходная строка
-$test = fwrite($fp, $output ); // Запись в файл
-fclose($fp); //Закрытие файла
-$file_array = file("file.txt"); // Открываем файл в режиме чтения
-return $file_array[28];
-}
 function HTML(){
     $HTML = '<b>bold</b>, <strong>bold</strong>
 <i>italic</i>, <em>italic</em>
