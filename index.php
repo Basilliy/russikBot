@@ -85,7 +85,7 @@ function FuckYou($chat_id){
 }
 
 function genegateInsult($chat_id,$lang){
-    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang='$lang);
+    $fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=".$lang);
     sendMessage($chat_id, $fuck);
 }
 function sendMessage($chat_id, $message) {
