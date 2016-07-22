@@ -84,13 +84,8 @@ function FuckYou($chat_id){
     
 }
 
-
-function deutch($chat_id){
-    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=de');
-    sendMessage($chat_id, $fuck);
-}
-function english($chat_id){
-    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
+function genegateInsult($chat_id,$lang){
+    $fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang='$lang);
     sendMessage($chat_id, $fuck);
 }
 function sendMessage($chat_id, $message) {
@@ -115,12 +110,7 @@ function AddUser($chat_id,$mass,$message){
     $mass[$chat_id] = $message;
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
-    if($message =='en'){
-        english($chat_id);
-    }
-    if($message =='de'){
-        deutch($chat_id);
-    }
+    genegateInsult($chat_id,$message);
 }
 function secretKeyboard(){
         $reply_markup = '';
@@ -144,12 +134,7 @@ function checkLanguage($mass,$chat_id){
             $language = $value;
         }
     }
-    if($language =='en'){
-        english($chat_id);
-    }
-    if($language =='de'){
-        deutch($chat_id);
-    }
+    genegateInsult($chat_id,$language);
 }
 
 
