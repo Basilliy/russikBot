@@ -168,7 +168,7 @@ function languageKeybord(){
 //        'request_location' => false ]]];
     // $buttons = ['refrefre' , 'erfre ' , 'erferf'];
     //'request_contact' => true]]];
-    $buttons = [['Generate Insult'],['en','de'/*<---сюда*/]]; //создать текстовое описание, корое будет передаваться на сервер
+    $buttons = [['Generate Insult'],['en','de'/*<---edit here*/]]; //создать текстовое описание, корое будет передаваться на сервер
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -180,7 +180,7 @@ function languageKeybord(){
     
     return $reply_markup;
     }
-function inlineKeybord(){ ///Выводяться только с сообщением
+function inlineKeybord(){ //create a text description that will be passed to the server
 $reply_markup = '';
 $x1 = array('text'=>'en','callback_data'=>"en");
 $x2 = array('text'=>'de','callback_data'=>"de");
@@ -188,8 +188,10 @@ $x3 = array('text'=>'ru','callback_data'=>"ru");
 $x4 = array('text'=>'fr','callback_data'=>"fr");
 $x5 = array('text'=>'es','callback_data'=>"es");
 $x6 = array('text'=>'pt','callback_data'=>"pt");
-// Создать нову переменную $xn(следующий номер), установить её опиание в поле text и добавить к ней callback_data, который будет 
-// возвращаться на сервер
+//You should create a new variable $xn(next6 number), and you should describe about it in the field "text" and add "callback_data", 
+//which will return to the server
+
+11:30 183  ///Displays only message
 $opz = [[$x1,$x2,$x3,$x4],[$x5,$x6]];
 $keyboard=array("inline_keyboard"=>$opz);
 $keyboard = json_encode($keyboard,true);
