@@ -10,8 +10,8 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 if(isset($output['callback_query']['data'])){
 
-if(isset($output['result'][0]['inline_query']['from']['id'])){
-   file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$output['result'][0]['inline_query']['from']['id']."&text=Please do not do this&parse_mode=HTML");         
+if(isset($output['inline_query']['from']['id'])){
+   file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$output['inline_query']['from']['id']."&text=Please do not do this&parse_mode=HTML");         
 }
 
 
