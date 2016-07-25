@@ -8,8 +8,8 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
-if($message=="/language@BotMarvinBot"){
-$prin = substr($message,0, -13);
+if($output['message']['chat']['type']!="private"){
+$message = substr($message,0, -13);
  file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$prin."&parse_mode=HTML");         
 }
 if(isset($output['callback_query']['data'])){
@@ -42,7 +42,7 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
-    case '/language@BotMarvinBot':
+    case '/language':
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
