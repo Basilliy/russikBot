@@ -9,9 +9,9 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 if(isset($output['inline_query']['from']['id'])){
-   $chat_id = -1001064927848;
+   $chat_id = $output['message']['chat']['id'];
    $message = $output['message']['text'];
-  file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=".substr($output['message']['text'],0, -13)."&parse_mode=HTML");         
+  file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message."&parse_mode=HTML");         
   
 }
 
