@@ -46,21 +46,28 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
-     case 'Genegate Insult':
+    case 'Genegate Insult':
+        checkLanguage($fp,$chat_id);
+        break;
+    case '/genegate':
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
         $message='';
           sendMessage($chat_id,forURL());
         break;
-       case 'secret Keyboard':
+    case '/homepage':
+        $message='';
+          sendMessage($chat_id,forURL());
+        break;
+    case 'secret Keyboard':
              $message = 'You found my secret';
         sendMessage($chat_id, $message.secretKeyboard());
          break;
-         case 'Generate Secret':
+    case 'Generate Secret':
                 FuckYou($chat_id);
          break;
-         case 'Go Back':
+    case 'Go Back':
              $message = "Welcome back";
         sendMessage($chat_id,$message.printKeybord());
          break; 
