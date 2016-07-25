@@ -41,6 +41,10 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
+    case '/language':
+         $message = 'Choose language.';
+    sendMessage($chat_id,$message.inlineKeybord());
+        break;
      case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
         break;
