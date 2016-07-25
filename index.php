@@ -45,7 +45,7 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
-    case '/language':
+    case '/language@BotMarvinBot':
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
