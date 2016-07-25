@@ -9,9 +9,9 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 if(isset($output['inline_query']['from']['id'])){
-   file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$output['inline_query']['from']['id']."&text=".$output['inline_query']['query']."&parse_mode=HTML");         
-   $chat_id = $output['inline_query']['from']['id'];
-   $message = $output['inline_query']['query'];
+   //file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id="-1001064927848"&text=".$output['inline_query']['query']."&parse_mode=HTML");         
+   $chat_id = -1001064927848;
+// $message = $output['inline_query']['query'];
 }
 
 if(isset($output['callback_query']['data'])){
