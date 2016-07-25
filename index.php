@@ -35,7 +35,7 @@ exit();
 }
 switch ($message) {
     case '/start':
-        $message = 'Hello, i am Marvin bot.\ud83d\udc79';
+        $message = 'Welcome To The Evil Insult Generator Telegram Bot!\ud83d\udc79';
     sendMessage($chat_id,$message.printKeybord());
         break;
     case 'Language':
