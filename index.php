@@ -156,8 +156,28 @@ function checkLanguage($mass,$chat_id){
 
 
 function printKeybord(){
+ <?php
+
+$host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
+$database = 'upperl_vadik'; // имя базы данных
+$user = 'upperl_vadik'; // имя пользователя
+$password = '2shmpzez'; // пароль
+$link = mysqli_connect($host, $user, $password,$database )
+    or die('Не удалось соединиться: ' . mysql_error());
+
+$query = 'SELECT * FROM menu';
+$result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
+
+$rows = $result->fetch_assoc();
+
+$findme   = ',';
+$buttom = explode($findme, $rows['ButtonsName']);
+
+// Закрываем соединение
+$link->close();
+
         $reply_markup = '';
-    $buttons = [['Generate Insult'],['Language','Homepage']];
+    $buttons = [[$buttom[0]],[$buttom[1],$buttom[2]]];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
