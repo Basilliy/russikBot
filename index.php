@@ -156,7 +156,6 @@ function checkLanguage($mass,$chat_id){
 
 
 function printKeybord(){
- <?php
 
 $host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
 $database = 'upperl_vadik'; // имя базы данных
