@@ -171,7 +171,7 @@ $rows = $result->fetch_assoc();
 
 $findme   = ',';
 $buttom = explode($findme, $rows['ButtonsName']);
-for($i = 0; $i < count$buttom); $i ++){
+for($i = 0; $i < count($buttom); $i ++){
 $buttom[$i] = "/".$buttom[$i];
 }
 // Закрываем соединение
@@ -252,6 +252,6 @@ function forURL(){
     return $HTML;
 }
 
-function Change keyboard($newButtonName, $oldButtonName){
+function ChangeKeyboard($newButtonName, $oldButtonName){
  
 }
