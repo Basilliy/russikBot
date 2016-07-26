@@ -212,7 +212,7 @@ $buttom = explode($findme, $rows['ButtonsName']);
 $link->close();
 
         $reply_markup = '';
-    $buttons = [[$buttom[0],$buttom['secret Keyboard']],[$buttom[1],$buttom[2]]];
+    $buttons = [[$buttom[0],['secret Keyboard']],[$buttom[1],$buttom[2]]];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
