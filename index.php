@@ -70,7 +70,7 @@ switch ($message) {
     case 'Change keyboard':
                 $message='Select the button you want to change the name';
           sendMessage($chat_id,$message.printKeybordforSelect());
-               Change keyboard(); 
+               //Change keyboard(); 
          break;
     case 'Go Back':
              $message = "Welcome back";
