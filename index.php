@@ -69,8 +69,8 @@ switch ($message) {
          break;
     case 'Change keyboard':
                 $message='Select the button you want to change the name';
-          sendMessage($chat_id,$message);
-               //Change keyboard(); 
+          sendMessage($chat_id,$message.printKeybordforSelect());
+               Change keyboard(); 
          break;
     case 'Go Back':
              $message = "Welcome back";
@@ -155,6 +155,41 @@ function checkLanguage($mass,$chat_id){
     genegateInsult($chat_id,$language);
 }
 
+function printKeybordforSelect(){
+
+$host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
+$database = 'upperl_vadik'; // имя базы данных
+$user = 'upperl_vadik'; // имя пользователя
+$password = '2shmpzez'; // пароль
+$link = mysqli_connect($host, $user, $password,$database )
+    or die('Не удалось соединиться: ' . mysql_error());
+
+$query = 'SELECT * FROM menu';
+$result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
+
+$rows = $result->fetch_assoc();
+
+$findme   = ',';
+$buttom = explode($findme, $rows['ButtonsName']);
+for($i = 0; $i < count$buttom); $i ++){
+$buttom[$i] = "/".$buttom[$i];
+}
+// Закрываем соединение
+$link->close();
+
+        $reply_markup = '';
+    $buttons = [[$buttom[0]],[$buttom[1],$buttom[2]]];
+    $keyboard = json_encode($keyboard = [
+        'keyboard' => $buttons /*[$buttons]*/,
+        'resize_keyboard' => true,
+        'one_time_keyboard' => false,
+        'parse_mode' => 'HTML',
+        'selective' => true
+    ]);
+    $reply_markup = '&reply_markup=' . $keyboard . '';
+    
+    return $reply_markup;
+}
 
 function printKeybord(){
 
@@ -177,7 +212,7 @@ $buttom = explode($findme, $rows['ButtonsName']);
 $link->close();
 
         $reply_markup = '';
-    $buttons = [[$buttom[0],['secret Keyboard']],[$buttom[1],$buttom[2]]];
+    $buttons = [[$buttom[0],$buttom['secret Keyboard']],[$buttom[1],$buttom[2]]];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -217,6 +252,6 @@ function forURL(){
     return $HTML;
 }
 
-function ChangeKeyboard($newButtonName, $oldButtonName){
+function Change keyboard($newButtonName, $oldButtonName){
  
 }
