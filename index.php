@@ -8,10 +8,7 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
-if($output['message']['chat']['type']!="private"){
-$message = substr($message,0, -13);
- file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$prin."&parse_mode=HTML");         
-}
+
 if(isset($output['callback_query']['data'])){
 
 
@@ -33,12 +30,9 @@ file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzy
 exit();
             
 }
-$emoji = array(
-  'preload' => json_decode('"\ud83d\udc79"') // Улыбочка.
-);
 switch ($message) {
     case '/start':
-        $message = 'Welcome To The Evil Insult Generator Telegram Bot!'.$emoji['preload'];
+        $message = 'Hello, i am Marvin bot.';
     sendMessage($chat_id,$message.printKeybord());
         break;
     case 'Language':
@@ -49,25 +43,21 @@ switch ($message) {
          $message = 'Choose language.';
     sendMessage($chat_id,$message.inlineKeybord());
         break;
-    case 'Genegate Insult':
-        checkLanguage($fp,$chat_id);
-        break;
-    case '/genegate':
+     case 'Genegate Insult':
         checkLanguage($fp,$chat_id);
         break;
     case 'Homepage':
         $message='';
           sendMessage($chat_id,forURL());
         break;
-    case '/homepage':
-        $message='';
-          sendMessage($chat_id,forURL());
-        break;
-    case 'secret Keyboard':
+       case 'secret Keyboard':
              $message = 'You found my secret';
         sendMessage($chat_id, $message.secretKeyboard());
          break;
-    case 'Go Back':
+         case 'Generate Secret':
+                FuckYou($chat_id);
+         break;
+         case 'Go Back':
              $message = "Welcome back";
         sendMessage($chat_id,$message.printKeybord());
          break; 
@@ -127,7 +117,7 @@ function AddUser($chat_id,$mass,$message){
 }
 function secretKeyboard(){
         $reply_markup = '';
-    $buttons = [['Go Back'],['Change keyboard']];
+    $buttons = [['Go Back'],['Generate Secret']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -151,28 +141,10 @@ function checkLanguage($mass,$chat_id){
 }
 
 
+
 function printKeybord(){
-
-$host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
-$database = 'upperl_vadik'; // имя базы данных
-$user = 'upperl_vadik'; // имя пользователя
-$password = '2shmpzez'; // пароль
-$link = mysqli_connect($host, $user, $password,$database )
-    or die('Не удалось соединиться: ' . mysql_error());
-
-$query = 'SELECT * FROM menu';
-$result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
-
-$rows = $result->fetch_assoc();
-
-$findme   = ',';
-$buttom = explode($findme, $rows['ButtonsName']);
-
-// Закрываем соединение
-$link->close();
-
         $reply_markup = '';
-    $buttons = [[$buttom[0],$buttom['secret Keyboard']],[$buttom[1],$buttom[2]]];
+    $buttons = [['Generate Insult'],['Language','Homepage']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -211,3 +183,5 @@ function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
 }
+
+
