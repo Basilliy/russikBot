@@ -178,7 +178,7 @@ $keyboard = json_encode($keyboard,true);
     return $reply_markup;
 }
 function sendPhoto($chat_id, $photo){
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
+    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
 }
 
 function forURL(){
