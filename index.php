@@ -30,9 +30,14 @@ file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_Oha
 exit();
             
 }
+
+$emoji = array(
+  'preload' => json_decode('"\ud83d\udc79"')
+);
+
 switch ($message) {
     case '/start':
-        $message = 'Welcome To The Evil Insult Generator Telegram Bot! "\u{1F604}"';
+        $message = 'Welcome To The Evil Insult Generator Telegram Bot!'. $emoji['preload'] ;
     sendMessage($chat_id,$message.printKeybord());
         break;
     case 'Language':
