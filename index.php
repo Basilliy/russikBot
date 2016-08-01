@@ -2,7 +2,7 @@
 /**
  * Telegram Bot access token и URL.
  */
-$access_token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
+$access_token = '188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA';
 $url = 'https://api.telegram.org/bot' . $access_token;
 $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
