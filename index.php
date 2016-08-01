@@ -93,7 +93,7 @@ function genegateInsult($chat_id,$lang){
     sendMessage($chat_id, $fuck);
 }
 function sendMessage($chat_id, $message) {
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
+    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
 }
 function checkUser($mass,$chat_id){
     $is = false;
