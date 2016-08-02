@@ -9,6 +9,9 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
+ file_get_contents("https://api.botan.io/track?token=ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8&uid="$chat_id"&name=search%20californication");
+
+
 function _incomingMessage($output) {
     $messageData = $output['message'];
 
