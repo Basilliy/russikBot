@@ -9,7 +9,7 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
-public function _incomingMessage($output) {
+function _incomingMessage($output) {
     $messageData = $output['message'];
 
     $botan = new Botan($this->access_token);
