@@ -14,6 +14,9 @@ file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
 
 
+file_get_contents("https://api.botan.io/track?token=jX3AS2HlMycbtiALMvAl0aDpOnIwXjXp&uid=".$chat_id."&name=search");
+file_get_contents("https://api.botan.io/track?token=jX3AS2HlMycbtiALMvAl0aDpOnIwXjXp&uid=".$chat_id."&name=search%20californication");
+
 function _incomingMessage($output) {
     $messageData = $output['message'];
 
