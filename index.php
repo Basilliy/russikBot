@@ -8,26 +8,17 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
-
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
-
-
 file_get_contents("https://api.botan.io/track?token=jX3AS2HlMycbtiALMvAl0aDpOnIwXjXp&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=jX3AS2HlMycbtiALMvAl0aDpOnIwXjXp&uid=".$chat_id."&name=search%20californication");
-
 function _incomingMessage($output) {
     $messageData = $output['message'];
-
     $botan = new Botan($this->access_token);
     $botan->track($messageData, 'Start');
 }
-
 if(isset($output['callback_query']['data'])){
-
-
-
 if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false) {
             foreach ( $fp as $key=> $value) {
               if($key==$output['callback_query']['message']['chat']['id']){
@@ -40,8 +31,7 @@ if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false)
           else{
            AddUserLanguage($output['callback_query']['message']['chat']['id'],$fp,$output['callback_query']['data']);
           }
-
-file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
+file_get_contents("https://api.telegram.org/bot".$access_token."/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
 exit();
             
 }
@@ -49,72 +39,45 @@ exit();
 $emoji = array(
   'preload' => json_decode('"\ud83d\udc79"')
 );
-
 switch ($message) {
     case '/start':
         $message = 'Welcome To The Evil Insult Generator Telegram Bot!'. $emoji['preload'] ;
-    sendMessage($chat_id,$message.printKeybord());
+    sendMessage($chat_id,$message.printKeybord(), $access_token);
         break;
     case 'Language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.inlineKeybord());
+    sendMessage($chat_id,$message.inlineKeybord(), $access_token);
         break;
     case '/language':
          $message = 'Choose language.';
-    sendMessage($chat_id,$message.inlineKeybord());
+    sendMessage($chat_id,$message.inlineKeybord(), $access_token);
         break;
      case 'Genegate Insult':
-        checkLanguage($fp,$chat_id);
+        checkLanguage($fp,$chat_id, $access_token);
         break;
     case 'Homepage':
         $message='';
-          sendMessage($chat_id,forURL());
+          sendMessage($chat_id,forURL(), $access_token);
         break;
-       case 'secret Keyboard':
-             $message = 'You found my secret';
-        sendMessage($chat_id, $message.secretKeyboard());
-         break;
-         case 'Generate Secret':
-                FuckYou($chat_id);
-         break;
-         case 'Go Back':
-             $message = "Welcome back";
-        sendMessage($chat_id,$message.printKeybord());
-         break; 
     default:
-       checkLanguage($fp, $chat_id);
+       checkLanguage($fp, $chat_id, $access_token);
 }
 
-function FuckYou($chat_id){
-    $number = rand(1, 4);
-    switch($number){
-            case 1:
-                $photo = "AgADAgADs6cxGy1h7g_4CyeuCcFzkJMjcQ0ABBH8Y3MeW8w5aUsAAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-            case 2:
-                $photo = "AgADAgADsqcxGy1h7g8dBdAETGyaUaMrcQ0ABKgghyjXUQayzkoAAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-            case 3:
-                $photo = "AgADAgADsacxGy1h7g9KAiIu5zjfv8g1cQ0ABGrlstN4Rt0s-0wAAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-            case 4:
-                $photo = "AgADAgADsKcxGy1h7g_J-P6O8n0Gv7ogcQ0ABPODhNMNWhfrF04AAgI";
-            sendPhoto($chat_id, $photo);
-            break;
-    }
-    
-}
 
-function genegateInsult($chat_id,$lang){
+function genegateInsult($chat_id,$lang, $asses_token){
     $fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=".$lang);
-    sendMessage($chat_id, $fuck);
+    sendMessage($chat_id, $fuck, $asses_token);
 }
-function sendMessage($chat_id, $message) {
-    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
+
+
+
+function sendMessage($chat_id, $message, $token) {
+    file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
 }
+
+
+
+
 function checkUser($mass,$chat_id){
     $is = false;
     foreach ( $mass as $key=> $value) {
@@ -124,41 +87,43 @@ function checkUser($mass,$chat_id){
     }
     return $is;
 }
+
+
+
+
 function AddUserLanguage($chat_id,$mass,$message){
     $mass[$chat_id] = $message;
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
 }
-function AddUser($chat_id,$mass,$message){
+
+
+
+
+
+function AddUser($chat_id,$mass,$message, $token){
     $mass[$chat_id] = $message;
     $arr3 = json_encode($mass);
     file_put_contents('user.json', $arr3);
-    genegateInsult($chat_id,$message);
-}
-function secretKeyboard(){
-        $reply_markup = '';
-    $buttons = [['Go Back'],['Generate Secret']];
-    $keyboard = json_encode($keyboard = [
-        'keyboard' => $buttons /*[$buttons]*/,
-        'resize_keyboard' => true,
-        'one_time_keyboard' => false,
-        'parse_mode' => 'HTML',
-        'selective' => true
-    ]);
-    $reply_markup = '&reply_markup=' . $keyboard;
-    
-    return $reply_markup;
+    genegateInsult($chat_id,$message, $token);
 }
 
-function checkLanguage($mass,$chat_id){
+
+
+
+
+
+function checkLanguage($mass,$chat_id, $token){
     $language = 'en';
     foreach ( $mass as $key=> $value) {
         if($key==$chat_id){
             $language = $value;
         }
     }
-    genegateInsult($chat_id,$language);
+    genegateInsult($chat_id,$language, $token);
 }
+
+
 
 
 
@@ -176,7 +141,6 @@ function printKeybord(){
     
     return $reply_markup;
 }
-
 function inlineKeybord(){ //create a text description that will be passed to the server
 $reply_markup = '';
 $x1 = array('text'=>'en','callback_data'=>"en");
@@ -189,7 +153,6 @@ $x7 = array('text'=>'cn','callback_data'=>"cn");
 $x8 = array('text'=>'sw','callback_data'=>"sw");
 //You should create a new variable $xn(next6 number), and you should describe about it in the field "text" and add "callback_data", 
 //which will return to the server
-
 ///Displays only message
 $opz = [[$x1,$x2,$x3,$x4],[$x5,$x6,$x7,$x8]];
 $keyboard=array("inline_keyboard"=>$opz);
@@ -197,13 +160,8 @@ $keyboard = json_encode($keyboard,true);
      $reply_markup = '&reply_markup=' . $keyboard;
     return $reply_markup;
 }
-function sendPhoto($chat_id, $photo){
-    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
-}
-
 function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
 }
-
 
