@@ -8,6 +8,45 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
+
+if(isset($output['inline_query'])){
+  $id = $output['inline_query']['from']['id'];
+  
+  $inline_lang = checkLanguageInline($fp,$id);
+ 
+    $input_context = array(
+                           "message_text" => "russik is cool"
+                          );
+//$fuck = file_get_contents("errors.txt");
+    $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=".$inline_lang);
+    $gen = array( "type" => "article",
+                  "id" => "2",
+                  "title" => "Generate",
+                  "input_message_content" => array("message_text"=>$say)
+                  );
+    $home = array( "type" => "article",
+                  "id" => "1",
+                  "title" => "Home Page",
+                  "input_message_content" => array("message_text"=>'<a href="https://evilinsult.com/">Visit our web site</a>',
+                                                    "parse_mode" => "HTML"),
+                 
+                  );
+
+    $drug = json_encode([$gen,$home]);
+    
+    file_get_contents("https://api.telegram.org/bot".$access_token."/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1"); 
+}
+
+function checkLanguageInline($mass,$chat_id){
+    $language = 'en';
+    foreach ( $mass as $key=> $value) {
+        if($key==$chat_id){
+            $language = $value;
+        }
+    }
+    return $language;
+}
+
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
