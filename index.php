@@ -50,8 +50,7 @@ function checkLanguageInline($mass,$chat_id){
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
-file_get_contents("https://api.botan.io/track?token=jX3AS2HlMycbtiALMvAl0aDpOnIwXjXp&uid=".$chat_id."&name=search");
-file_get_contents("https://api.botan.io/track?token=jX3AS2HlMycbtiALMvAl0aDpOnIwXjXp&uid=".$chat_id."&name=search%20californication");
+
 function _incomingMessage($output) {
     $messageData = $output['message'];
     $botan = new Botan($this->access_token);
@@ -183,17 +182,33 @@ function printKeybord(){
 function inlineKeybord(){ //create a text description that will be passed to the server
 $reply_markup = '';
 $x1 = array('text'=>'en','callback_data'=>"en");
-$x2 = array('text'=>'de','callback_data'=>"de");
-$x3 = array('text'=>'ru','callback_data'=>"ru");
-$x4 = array('text'=>'fr','callback_data'=>"fr");
-$x5 = array('text'=>'es','callback_data'=>"es");
+$x2 = array('text'=>'zh','callback_data'=>"zh");
+$x3 = array('text'=>'es','callback_data'=>"es");
+$x4 = array('text'=>'hi','callback_data'=>"hi");
+$x5 = array('text'=>'ar','callback_data'=>"ar");
 $x6 = array('text'=>'pt','callback_data'=>"pt");
-$x7 = array('text'=>'cn','callback_data'=>"cn");
-$x8 = array('text'=>'sw','callback_data'=>"sw");
+$x7 = array('text'=>'bn','callback_data'=>"bn");
+$x8 = array('text'=>'ru','callback_data'=>"ru");
+$x9 = array('text'=>'ja','callback_data'=>"ja");
+$x10 = array('text'=>'jv','callback_data'=>"jv");
+$x11 = array('text'=>'sw','callback_data'=>"sw");
+$x12 = array('text'=>'de','callback_data'=>"de");
+$x13 = array('text'=>'ko','callback_data'=>"ko");
+$x14 = array('text'=>'fr','callback_data'=>"fr");
+$x15 = array('text'=>'te','callback_data'=>"te");
+$x16 = array('text'=>'mr','callback_data'=>"mr");
+$x17 = array('text'=>'tr','callback_data'=>"tr");
+$x18 = array('text'=>'ta','callback_data'=>"ta");
+$x19 = array('text'=>'vi','callback_data'=>"vi");
+$x20 = array('text'=>'ur','callback_data'=>"ur");
+$x21 = array('text'=>'el','callback_data'=>"el");
+$x22 = array('text'=>'it','callback_data'=>"it");
+$x23 = array('text'=>'cs','callback_data'=>"cs");
+$x24 = array('text'=>'la','callback_data'=>"la");
 //You should create a new variable $xn(next6 number), and you should describe about it in the field "text" and add "callback_data", 
 //which will return to the server
 ///Displays only message
-$opz = [[$x1,$x2,$x3,$x4],[$x5,$x6,$x7,$x8]];
+$opz = [[$x1,$x2,$x3,$x4],[$x5,$x6,$x7,$x8],[$x9,$x10,$x11,$x12],[$x13,$x14,$x15,$x16],[$x17,$x18,$x19,$x20],[$x21,$x22,$x23,$x24]];
 $keyboard=array("inline_keyboard"=>$opz);
 $keyboard = json_encode($keyboard,true);
      $reply_markup = '&reply_markup=' . $keyboard;
@@ -203,4 +218,5 @@ function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
 }
+
 
